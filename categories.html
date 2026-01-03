@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الأقسام - الصالة الاقتصادية المتقدمة</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <script>
+        // إخفاء تحذير CDN للمشروع التجريبي
+        const originalWarn = console.warn;
+        console.warn = function (warning) {
+            if (!warning.includes('cdn.tailwindcss.com should not be used in production')) {
+                originalWarn.apply(console, arguments);
+            }
+        };
+    </script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .category-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-200">
+    <div class="max-w-sm mx-auto bg-background-light dark:bg-background-dark shadow-lg">
+        <div class="flex flex-col min-h-screen">
+            <main class="flex-grow pb-24">
+                <header class="p-4 bg-background-light dark:bg-background-dark sticky top-0 z-20">
+                    <div class="flex justify-between items-center">
+                        <button onclick="window.location.href='home.html'" class="text-slate-700 dark:text-slate-300">
+                            <span class="material-icons-outlined">arrow_back</span>
+                        </button>
+                        <h1 class="text-2xl font-black text-primary">الأقسام</h1>
+                        <div class="w-8"></div>
+                    </div>
+                </header>
+
+                <div class="p-4">
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div onclick="showProducts('vegetables')"
+                            class="bg-white rounded-lg p-6 text-center category-card cursor-pointer">
+                            <div
+                                class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <span class="material-icons-outlined text-green-600 text-3xl">local_florist</span>
+                            </div>
+                            <h3 class="font-bold text-gray-800">خضروات وفواكه</h3>
+                            <p class="text-sm text-gray-500 mt-1">طازجة يومياً</p>
+                        </div>
+
+                        <div onclick="showProducts('dairy')"
+                            class="bg-white rounded-lg p-6 text-center category-card cursor-pointer">
+                            <div
+                                class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <span class="material-icons-outlined text-blue-600 text-3xl">egg</span>
+                            </div>
+                            <h3 class="font-bold text-gray-800">منتجات الألبان</h3>
+                            <p class="text-sm text-gray-500 mt-1">حليب وبيض ولحوم</p>
+                        </div>
+
+                        <div onclick="showProducts('bakery')"
+                            class="bg-white rounded-lg p-6 text-center category-card cursor-pointer">
+                            <div
+                                class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <span class="material-icons-outlined text-orange-600 text-3xl">bakery_dining</span>
+                            </div>
+                            <h3 class="font-bold text-gray-800">المخبوزات</h3>
+                            <p class="text-sm text-gray-500 mt-1">خبز ومعجنات</p>
+                        </div>
+
+                        <div onclick="showProducts('meat')"
+                            class="bg-white rounded-lg p-6 text-center category-card cursor-pointer">
+                            <div
+                                class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <span class="material-icons-outlined text-red-600 text-3xl">kebab_dining</span>
+                            </div>
+                            <h3 class="font-bold text-gray-800">اللحوم</h3>
+                            <p class="text-sm text-gray-500 mt-1">طازجة وحلال</p>
+                        </div>
+
+                        <div onclick="showProducts('cleaning')"
+                            class="bg-white rounded-lg p-6 text-center category-card cursor-pointer">
+                            <div
+                                class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <span class="material-icons-outlined text-purple-600 text-3xl">cleaning_services</span>
+                            </div>
+                            <h3 class="font-bold text-gray-800">منظفات</h3>
+                            <p class="text-sm text-gray-500 mt-1">منتجات التنظيف</p>
+                        </div>
+
+                        <div onclick="showProducts('beverages')"
+                            class="bg-white rounded-lg p-6 text-center category-card cursor-pointer">
+                            <div
+                                class="w-16 h-16 bg-cyan-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <span class="material-icons-outlined text-cyan-600 text-3xl">local_drink</span>
+                            </div>
+                            <h3 class="font-bold text-gray-800">مشروبات</h3>
+                            <p class="text-sm text-gray-500 mt-1">عصائر ومشروبات</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg p-4">
+                        <h3 class="font-bold text-lg mb-3">العروض الخاصة</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center p-3 bg-red-50 rounded-lg">
+                                <span class="material-icons-outlined text-red-500 ml-3">local_offer</span>
+                                <div>
+                                    <div class="font-bold text-red-700">خصم 30%</div>
+                                    <div class="text-sm text-red-600">على جميع الخضروات الموسمية</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center p-3 bg-blue-50 rounded-lg">
+                                <span class="material-icons-outlined text-blue-500 ml-3">stars</span>
+                                <div>
+                                    <div class="font-bold text-blue-700">عرض الباقة</div>
+                                    <div class="text-sm text-blue-600">اشترِ 3 احصل على 1 مجاناً</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </main>
+
+        </div>
+
+        <!-- شريط التنقل السفلي -->
+        <nav class="fixed bottom-0 left-0 right-0 max-w-sm mx-auto bg-white border-t border-gray-200 shadow-lg">
+            <div class="flex justify-around h-16">
+                <button onclick="window.location.href='home.html'"
+                    class="flex flex-col items-center justify-center flex-grow text-gray-500 hover:text-[#6B8E23]">
+                    <span class="material-icons-outlined text-2xl">home</span>
+                    <span class="text-xs mt-1">الرئيسية</span>
+                </button>
+                <button onclick="window.location.href='categories.html'"
+                    class="flex flex-col items-center justify-center flex-grow text-[#6B8E23] bg-green-50">
+                    <span class="material-icons-outlined text-2xl">grid_view</span>
+                    <span class="text-xs font-bold mt-1">الأقسام</span>
+                </button>
+                <button onclick="window.location.href='orders.html'"
+                    class="flex flex-col items-center justify-center flex-grow text-gray-500 hover:text-[#6B8E23]">
+                    <span class="material-icons-outlined text-2xl">receipt_long</span>
+                    <span class="text-xs mt-1">طلباتي</span>
+                </button>
+                <button onclick="window.location.href='cart.html'"
+                    class="flex flex-col items-center justify-center flex-grow text-gray-500 hover:text-[#6B8E23] relative">
+                    <span class="material-icons-outlined text-2xl">shopping_bag</span>
+                    <span class="text-xs mt-1">السلة</span>
+                    <span
+                        class="absolute -top-1 -right-1 bg-[#E63946] text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-bold">3</span>
+                </button>
+                <button onclick="window.location.href='favorites.html'"
+                    class="flex flex-col items-center justify-center flex-grow text-gray-500 hover:text-[#6B8E23]">
+                    <span class="material-icons-outlined text-2xl">favorite_border</span>
+                    <span class="text-xs mt-1">المفضلة</span>
+                </button>
+                <button onclick="window.location.href='profile.html'"
+                    class="flex flex-col items-center justify-center flex-grow text-gray-500 hover:text-[#6B8E23]">
+                    <span class="material-icons-outlined text-2xl">person_outline</span>
+                    <span class="text-xs mt-1">حسابي</span>
+                </button>
+            </div>
+        </nav>
+
+        <script>
+            function showProducts(category) {
+                alert(`عرض منتجات ${category}`);
+                // يمكن إضافة منطق لعرض المنتجات حسب الفئة
+            }
+        </script>
+</body>
+
+</html>

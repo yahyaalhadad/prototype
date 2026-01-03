@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ابدأ هنا - الصالة الاقتصادية المتقدمة</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #6B8E23, #0A6E3A);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            direction: rtl;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid white;
+            margin: 0 auto 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            animation: pulse 2s infinite;
+        }
+
+        .button {
+            background: white;
+            color: #6B8E23;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 30px;
+            cursor: pointer;
+            margin: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .instructions {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            text-align: right;
+        }
+
+        .instructions h3 {
+            margin-top: 0;
+            color: #FFE066;
+        }
+
+        .screens-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .screen-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .screen-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .screen-item h4 {
+            margin: 10px 0 5px 0;
+            color: #FFE066;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <img src="logo.jpg" alt="شعار الصالة الاقتصادية" class="logo">
+        <h1>الصالة الاقتصادية المتقدمة</h1>
+
+        <p style="font-size: 18px; margin-bottom: 30px;">تطبيق تسوق إلكتروني متكامل - نسخة تجريبية</p>
+
+        <div
+            style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px; margin: 20px 0; text-align: center;">
+            <h3 style="margin: 0 0 10px 0; color: #FFE066;">🚀 التدفق الصحيح:</h3>
+            <p style="margin: 5px 0;">1. البداية ← اضغط هنا أولاً</p>
+            <p style="margin: 5px 0;">2. تسجيل الدخول → متابعة</p>
+            <p style="margin: 5px 0;">3. الشاشة الرئيسية → استكشف المنتجات</p>
+        </div>
+
+        <div class="screens-grid">
+            <div class="screen-item" style="border: 3px solid #6B8E23;">
+                <span style="font-size: 24px;">🏠</span>
+                <h4 style="color: #6B8E23; font-weight: bold;">البداية ← ابدأ من هنا</h4>
+                <a href="splash.html" class="button"
+                    style="padding: 8px 16px; font-size: 14px; background: #6B8E23;">افتح أولاً</a>
+            </div>
+            <div class="screen-item">
+                <span style="font-size: 24px;">🔐</span>
+                <h4>تسجيل الدخول</h4>
+                <a href="login.html" class="button" style="padding: 8px 16px; font-size: 14px;">افتح</a>
+            </div>
+            <div class="screen-item">
+                <span style="font-size: 24px;">🏪</span>
+                <h4>الصفحة الرئيسية</h4>
+                <a href="home.html" class="button" style="padding: 8px 16px; font-size: 14px;">افتح</a>
+            </div>
+            <div class="screen-item">
+                <span style="font-size: 24px;">🛒</span>
+                <h4>سلة المشتريات</h4>
+                <a href="cart.html" class="button" style="padding: 8px 16px; font-size: 14px;">افتح</a>
+            </div>
+            <div class="screen-item">
+                <span style="font-size: 24px;">📍</span>
+                <h4>إتمام الطلب - العنوان</h4>
+                <a href="checkout_address.html" class="button" style="padding: 8px 16px; font-size: 14px;">افتح</a>
+            </div>
+            <div class="screen-item">
+                <span style="font-size: 24px;">💳</span>
+                <h4>إتمام الطلب - الدفع</h4>
+                <a href="checkout_payment.html" class="button" style="padding: 8px 16px; font-size: 14px;">افتح</a>
+            </div>
+            <div class="screen-item">
+                <span style="font-size: 24px;">📂</span>
+                <h4>الأقسام</h4>
+                <a href="categories.html" class="button" style="padding: 8px 16px; font-size: 14px;">افتح</a>
+            </div>
+            <div class="screen-item">
+                <span style="font-size: 24px;">🔍</span>
+                <h4>البحث</h4>
+                <a href="search.html" class="button" style="padding: 8px 16px; font-size: 14px;">افتح</a>
+            </div>
+            <div class="screen-item">
+                <span style="font-size: 24px;">📦</span>
+                <h4>تفاصيل المنتج</h4>
+                <a href="product.html" class="button" style="padding: 8px 16px; font-size: 14px;">افتح</a>
+            </div>
+            <div class="screen-item">
+                <span style="font-size: 24px;">❤️</span>
+                <h4>المفضلة</h4>
+                <a href="favorites.html" class="button" style="padding: 8px 16px; font-size: 14px;">افتح</a>
+            </div>
+            <div class="screen-item">
+                <span style="font-size: 24px;">👤</span>
+                <h4>الحساب الشخصي</h4>
+                <a href="profile.html" class="button" style="padding: 8px 16px; font-size: 14px;">افتح</a>
+            </div>
+            <div class="screen-item">
+                <span style="font-size: 24px;">⚙️</span>
+                <h4>الإعدادات</h4>
+                <a href="settings.html" class="button" style="padding: 8px 16px; font-size: 14px;">افتح</a>
+            </div>
+        </div>
+
+        <div class="instructions">
+            <h3>🚀 كيفية الاستخدام:</h3>
+            <p><strong>1.</strong> انقر على أي شاشة من الأعلى لتجربتها بشكل منفصل</p>
+            <p><strong>2.</strong> أو ابدأ من <strong>البداية</strong> لتجربة التدفق الكامل</p>
+            <p><strong>3.</strong> جميع الشاشات تعمل بدون الحاجة لخادم محلي</p>
+            <p><strong>4.</strong> الصور والألوان مطابقة لتصميمك الأصلي</p>
+        </div>
+
+        <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; margin: 20px 0;">
+            <h3 style="color: #FFE066; margin-top: 0;">✨ المميزات:</h3>
+            <ul style="text-align: right; list-style: none; padding: 0;">
+                <li>✅ صفحات منفصلة لكل شاشة</li>
+                <li>✅ حركات وتأثيرات بسيطة</li>
+                <li>✅ سلة مشتريات تفاعلية</li>
+                <li>✅ تنقل سهل بين الشاشات</li>
+                <li>✅ تصميم متجاوب للهاتف</li>
+                <li>✅ ألوان مطابقة للتصميم الأصلي</li>
+                <li>✅ زر الإعدادات في الشريط العلوي</li>
+                <li>✅ جميع الأزرار تعمل بشكل صحيح</li>
+            </ul>
+        </div>
+
+        <p style="margin-top: 30px; font-style: italic;">
+            تم إنشاء هذا التطبيق خصيصاً لعرض مشروع الصالة الاقتصادية المتقدمة 🎯
+        </p>
+    </div>
+</body>
+
+</html>

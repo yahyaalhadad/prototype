@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تفاصيل المنتج - الصالة الاقتصادية المتقدمة</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .product-image {
+            transition: transform 0.3s ease;
+        }
+
+        .product-image:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-200">
+    <div class="max-w-sm mx-auto bg-background-light dark:bg-background-dark shadow-lg">
+        <div class="flex flex-col min-h-screen">
+            <main class="flex-grow pb-24">
+                <header
+                    class="p-4 bg-background-light dark:bg-background-dark sticky top-0 z-20 flex items-center justify-between">
+                    <button onclick="window.location.href='home.html'" class="text-slate-700 dark:text-slate-300">
+                        <span class="material-icons-outlined">arrow_back</span>
+                    </button>
+                    <div class="flex items-center space-x-4 space-x-reverse">
+                        <button class="text-slate-700 dark:text-slate-300">
+                            <span class="material-icons-outlined">share</span>
+                        </button>
+                        <button class="text-red-500">
+                            <span class="material-icons-outlined">favorite_border</span>
+                        </button>
+                    </div>
+                </header>
+                <!-- صورة المنتج -->
+                <div class="bg-white p-4">
+                    <img src="https://images.unsplash.com/photo-1546470427-e9e826abd10f?w=400" alt="طماطم طازجة"
+                        class="w-full h-64 object-cover rounded-lg product-image">
+                </div>
+
+                <!-- معلومات المنتج -->
+                <div class="bg-white mx-4 mt-4 rounded-lg p-4">
+                    <div class="flex justify-between items-start mb-2">
+                        <h1 class="text-2xl font-bold text-gray-800">طماطم طازجة</h1>
+                        <div class="flex items-center">
+                            <span class="text-yellow-400">★★★★☆</span>
+                            <span class="text-sm text-gray-500 mr-1">(4.5)</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-2">طماطم حمراء طازجة من المزارع المحلية</p>
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <span class="text-2xl font-bold text-[#6B8E23]">5.95 ر.س</span>
+                            <span class="text-sm text-gray-500 line-through mr-2">7.50 ر.س</span>
+                        </div>
+                        <span class="bg-red-100 text-red-600 px-2 py-1 rounded text-sm">خصم 20%</span>
+                    </div>
+                </div>
+
+                <!-- الكمية والإضافة للسلة -->
+                <div class="bg-white mx-4 mt-4 rounded-lg p-4">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-4 space-x-reverse">
+                            <span class="text-gray-600">الكمية:</span>
+                            <div class="flex items-center bg-gray-100 rounded-full">
+                                <button onclick="updateQuantity(-1)"
+                                    class="w-10 h-10 flex items-center justify-center text-gray-600 hover:bg-gray-200 rounded-full">
+                                    <span class="material-icons-outlined">remove</span>
+                                </button>
+                                <span id="quantity" class="px-4 font-bold">1</span>
+                                <button onclick="updateQuantity(1)"
+                                    class="w-10 h-10 flex items-center justify-center text-[#6B8E23] hover:bg-green-100 rounded-full">
+                                    <span class="material-icons-outlined">add</span>
+                                </button>
+                            </div>
+                        </div>
+                        <button onclick="addToCart()"
+                            class="bg-[#6B8E23] text-white px-6 py-3 rounded-lg font-bold hover:bg-[#5A7D1A] transition-colors">
+                            إضافة للسلة
+                        </button>
+                    </div>
+                </div>
+
+                <!-- تفاصيل المنتج -->
+                <div class="bg-white mx-4 mt-4 rounded-lg p-4">
+                    <h3 class="font-bold text-lg mb-3">تفاصيل المنتج</h3>
+                    <div class="space-y-2 text-gray-600">
+                        <p>• طماطم حمراء ناضجة بالكامل</p>
+                        <p>• مغسولة ومعدة للاستخدام الفوري</p>
+                        <p>• خالية من المواد الكيميائية الضارة</p>
+                        <p>• من مزارع محلية معتمدة</p>
+                        <p>• صالحة للاستخدام لمدة أسبوع في الثلاجة</p>
+                    </div>
+                </div>
+
+                <!-- معلومات التغذية -->
+                <div class="bg-white mx-4 mt-4 rounded-lg p-4">
+                    <h3 class="font-bold text-lg mb-3">القيمة الغذائية (لكل 100 جرام)</h3>
+                    <div class="grid grid-cols-2 gap-4 text-sm">
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">سعرات حرارية:</span>
+                            <span class="font-bold">18 سعرة</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">بروتين:</span>
+                            <span class="font-bold">0.9 جرام</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">كربوهيدرات:</span>
+                            <span class="font-bold">3.9 جرام</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">ألياف:</span>
+                            <span class="font-bold">1.2 جرام</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- منتجات مشابهة -->
+                <div class="mx-4 mt-4">
+                    <h3 class="font-bold text-lg mb-3">منتجات مشابهة</h3>
+                    <div class="flex space-x-4 space-x-reverse overflow-x-auto">
+                        <div onclick="showProduct('cucumber')"
+                            class="flex-shrink-0 w-32 bg-white rounded-lg p-3 text-center cursor-pointer hover:shadow-lg transition-shadow">
+                            <img src="https://images.unsplash.com/photo-1449300079323-02e209d9d3a?w=200" alt="خيار"
+                                class="w-full h-20 object-cover rounded mb-2">
+                            <h4 class="font-bold text-sm truncate">خيار طازج</h4>
+                            <p class="text-[#6B8E23] font-bold text-sm">3.50 ر.س</p>
+                        </div>
+                        <div onclick="showProduct('pepper')"
+                            class="flex-shrink-0 w-32 bg-white rounded-lg p-3 text-center cursor-pointer hover:shadow-lg transition-shadow">
+                            <img src="https://images.unsplash.com/photo-1563565375-f3fdfdbefa83?w=200" alt="فلفل"
+                                class="w-full h-20 object-cover rounded mb-2">
+                            <h4 class="font-bold text-sm truncate">فلفل ألوان</h4>
+                            <p class="text-[#6B8E23] font-bold text-sm">8.90 ر.س</p>
+                        </div>
+                        <div onclick="showProduct('onion')"
+                            class="flex-shrink-0 w-32 bg-white rounded-lg p-3 text-center cursor-pointer hover:shadow-lg transition-shadow">
+                            <img src="https://images.unsplash.com/photo-1580201092675-a0a6a6cafbb1?w=200" alt="بصل"
+                                class="w-full h-20 object-cover rounded mb-2">
+                            <h4 class="font-bold text-sm truncate">بصل أحمر</h4>
+                            <p class="text-[#6B8E23] font-bold text-sm">4.25 ر.س</p>
+                        </div>
+                    </div>
+            </main>
+
+            <!-- شريط التنقل السفلي -->
+            <nav class="fixed bottom-0 left-0 right-0 max-w-sm mx-auto bg-white border-t border-gray-200 shadow-lg">
+                <div class="flex justify-around h-16">
+                    <button onclick="window.location.href='home.html'"
+                        class="flex flex-col items-center justify-center flex-grow text-gray-500 hover:text-[#6B8E23]">
+                        <span class="material-icons-outlined text-2xl">home</span>
+                        <span class="text-xs mt-1">الرئيسية</span>
+                    </button>
+                    <button onclick="window.location.href='categories.html'"
+                        class="flex flex-col items-center justify-center flex-grow text-gray-500 hover:text-[#6B8E23]">
+                        <span class="material-icons-outlined text-2xl">grid_view</span>
+                        <span class="text-xs mt-1">الأقسام</span>
+                    </button>
+                    <button onclick="window.location.href='orders.html'"
+                        class="flex flex-col items-center justify-center flex-grow text-gray-500 hover:text-[#6B8E23]">
+                        <span class="material-icons-outlined text-2xl">receipt_long</span>
+                        <span class="text-xs mt-1">طلباتي</span>
+                    </button>
+                    <button onclick="window.location.href='orders.html'"
+                        class="flex flex-col items-center justify-center flex-grow text-gray-500 hover:text-[#6B8E23]">
+                        <span class="material-icons-outlined text-2xl">receipt_long</span>
+                        <span class="text-xs mt-1">طلباتي</span>
+                    </button>
+                    <button onclick="window.location.href='cart.html'"
+                        class="flex flex-col items-center justify-center flex-grow text-gray-500 hover:text-[#6B8E23] relative">
+                        <span class="material-icons-outlined text-2xl">shopping_bag</span>
+                        <span class="text-xs mt-1">السلة</span>
+                        <span
+                            class="absolute -top-1 -right-1 bg-[#E63946] text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-bold">3</span>
+                    </button>
+                    <button onclick="window.location.href='favorites.html'"
+                        class="flex flex-col items-center justify-center flex-grow text-gray-500 hover:text-[#6B8E23]">
+                        <span class="material-icons-outlined text-2xl">favorite_border</span>
+                        <span class="text-xs mt-1">المفضلة</span>
+                    </button>
+                    <button onclick="window.location.href='profile.html'"
+                        class="flex flex-col items-center justify-center flex-grow text-gray-500 hover:text-[#6B8E23]">
+                        <span class="material-icons-outlined text-2xl">person_outline</span>
+                        <span class="text-xs mt-1">حسابي</span>
+                    </button>
+                </div>
+            </nav>
+
+            <script>
+                let quantity = 1;
+
+                function updateQuantity(change) {
+                    quantity += change;
+                    if (quantity < 1) quantity = 1;
+                    document.getElementById('quantity').textContent = quantity;
+                }
+
+                function addToCart() {
+                    alert(`تم إضافة ${quantity} كيلو من الطماطم إلى السلة!`);
+                    // يمكن إضافة منطق لإضافة المنتج للسلة
+                }
+
+                function showProduct(product) {
+                    alert(`عرض تفاصيل منتج: ${product}`);
+                    // يمكن إضافة منطق لعرض منتج آخر
+                }
+            </script>
+</body>
+
+</html>

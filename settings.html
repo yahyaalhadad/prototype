@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الإعدادات - الصالة الاقتصادية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .setting-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px;
+            background: white;
+            border-radius: 12px;
+            margin: 8px 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 24px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked+.slider {
+            background-color: #6B8E23;
+        }
+
+        input:checked+.slider:before {
+            transform: translateX(26px);
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-200">
+    <div class="max-w-sm mx-auto bg-background-light dark:bg-background-dark shadow-lg">
+        <div class="flex flex-col min-h-screen">
+            <main class="flex-grow pb-24">
+                <header class="p-4 bg-background-light dark:bg-background-dark sticky top-0 z-20">
+                    <div class="flex justify-between items-center">
+                        <button onclick="window.location.href='home.html'" class="text-slate-700 dark:text-slate-300">
+                            <span class="material-icons-outlined">arrow_back</span>
+                        </button>
+                        <h1 class="text-2xl font-black text-primary">الإعدادات</h1>
+                        <div class="w-8"></div>
+                    </div>
+                </header>
+
+                <div class="p-4 space-y-4">
+                    <div class="setting-item">
+                        <div class="flex items-center">
+                            <span class="material-icons-outlined ml-3 text-[#6B8E23]">notifications</span>
+                            <div>
+                                <div class="font-bold">التنبيهات</div>
+                                <div class="text-sm text-gray-500">تفعيل إشعارات الطلبات</div>
+                            </div>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="setting-item">
+                        <div class="flex items-center">
+                            <span class="material-icons-outlined ml-3 text-[#6B8E23]">dark_mode</span>
+                            <div>
+                                <div class="font-bold">الوضع المظلم</div>
+                                <div class="text-sm text-gray-500">تبديل مظهر التطبيق</div>
+                            </div>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="setting-item">
+                        <div class="flex items-center">
+                            <span class="material-icons-outlined ml-3 text-[#6B8E23]">language</span>
+                            <div>
+                                <div class="font-bold">اللغة</div>
+                                <div class="text-sm text-gray-500">العربية</div>
+                            </div>
+                        </div>
+                        <span class="material-icons-outlined text-gray-400">chevron_right</span>
+                    </div>
+
+                    <div class="setting-item">
+                        <div class="flex items-center">
+                            <span class="material-icons-outlined ml-3 text-[#6B8E23]">location_on</span>
+                            <div>
+                                <div class="font-bold">العنوان الافتراضي</div>
+                                <div class="text-sm text-gray-500">تحديث عنوان التوصيل</div>
+                            </div>
+                        </div>
+                        <span class="material-icons-outlined text-gray-400">chevron_right</span>
+                    </div>
+
+                    <div class="setting-item">
+                        <div class="flex items-center">
+                            <span class="material-icons-outlined ml-3 text-[#6B8E23]">payment</span>
+                            <div>
+                                <div class="font-bold">طرق الدفع</div>
+                                <div class="text-sm text-gray-500">إدارة البطاقات المحفوظة</div>
+                            </div>
+                        </div>
+                        <span class="material-icons-outlined text-gray-400">chevron_right</span>
+                    </div>
+
+                    <div class="mt-8 space-y-4">
+                        <button class="w-full bg-[#6B8E23] text-white font-bold py-4 px-4 rounded-lg">
+                            حفظ التغييرات
+                        </button>
+
+                        <button class="w-full bg-red-500 text-white font-bold py-4 px-4 rounded-lg">
+                            تسجيل الخروج
+                        </button>
+                    </div>
+
+                    <div class="text-center mt-8 text-gray-500 text-sm">
+                        الإصدار 1.0.0
+                    </div>
+            </main>
+
+            <!-- شريط التنقل السفلي -->
+</body>
+
+</html>

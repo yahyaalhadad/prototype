@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>سلة المشتريات - الصالة الاقتصادية المتقدمة</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&amp;display=swap"
+    rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#6A7745", // Olive Green
+            "background-light": "#F5F5F5",
+            "background-dark": "#121212",
+            "accent": "#B91C1C", // Warm Red
+          },
+          fontFamily: {
+            display: ["Tajawal", "sans-serif"],
+          },
+          borderRadius: {
+            DEFAULT: "0.75rem", // 12px
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display">
+  <div class="container mx-auto max-w-md">
+    <div class="flex flex-col h-screen">
+      <header
+        class="p-4 flex items-center justify-between bg-background-light dark:bg-background-dark sticky top-0 z-10 border-b border-gray-200 dark:border-gray-800">
+        <button onclick="window.location.href='home.html'" class="text-gray-800 dark:text-gray-200">
+          <span class="material-symbols-outlined">arrow_forward_ios</span>
+        </button>
+        <h1 class="text-xl font-bold text-gray-900 dark:text-gray-100">سلة المشتريات</h1>
+        <div class="w-8"></div>
+      </header>
+      <main class="flex-grow p-4 overflow-y-auto">
+        <div class="space-y-4">
+          <div class="bg-white dark:bg-gray-800 rounded-lg p-4 flex items-center space-x-4 space-x-reverse">
+            <img alt="منتج أرز بسمتي" class="w-20 h-20 rounded object-cover"
+              src="https://images.unsplash.com/photo-1586201375761-83865001e31c?w=200" />
+            <div class="flex-1">
+              <h2 class="font-bold text-gray-800 dark:text-gray-100">أرز بسمتي فاخر</h2>
+              <p class="text-primary font-semibold text-lg">٣٢.٥٠ ر.س</p>
+              <div class="flex items-center justify-between mt-2">
+                <div class="flex items-center space-x-3 space-x-reverse bg-gray-100 dark:bg-gray-700 rounded-full">
+                  <button onclick="updateQuantity('rice', -1)" class="p-2 text-accent">
+                    <span class="material-symbols-outlined text-base">remove</span>
+                  </button>
+                  <span class="px-2 font-bold text-gray-800 dark:text-gray-200" id="qty-rice">١</span>
+                  <button onclick="updateQuantity('rice', 1)" class="p-2 text-accent">
+                    <span class="material-symbols-outlined text-base">add</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <button onclick="removeItem('rice')" class="text-gray-400 dark:text-gray-500 self-start">
+              <span class="material-symbols-outlined">delete</span>
+            </button>
+          </div>
+          <div class="bg-white dark:bg-gray-800 rounded-lg p-4 flex items-center space-x-4 space-x-reverse">
+            <img alt="موز طازج" class="w-20 h-20 rounded object-cover"
+              src="https://images.unsplash.com/photo-1571771019784-3ff35f4f4277?w=200" />
+            <div class="flex-1">
+              <h2 class="font-bold text-gray-800 dark:text-gray-100">موز طازج (١ كيلو)</h2>
+              <p class="text-primary font-semibold text-lg">٤.٩٥ ر.س</p>
+              <div class="flex items-center justify-between mt-2">
+                <div class="flex items-center space-x-3 space-x-reverse bg-gray-100 dark:bg-gray-700 rounded-full">
+                  <button onclick="updateQuantity('banana', -1)" class="p-2 text-accent">
+                    <span class="material-symbols-outlined text-base">remove</span>
+                  </button>
+                  <span class="px-2 font-bold text-gray-800 dark:text-gray-200" id="qty-banana">٢</span>
+                  <button onclick="updateQuantity('banana', 1)" class="p-2 text-accent">
+                    <span class="material-symbols-outlined text-base">add</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <button onclick="removeItem('banana')" class="text-gray-400 dark:text-gray-500 self-start">
+              <span class="material-symbols-outlined">delete</span>
+            </button>
+          </div>
+          <div class="bg-white dark:bg-gray-800 rounded-lg p-4 flex items-center space-x-4 space-x-reverse">
+            <img alt="حليب طازج" class="w-20 h-20 rounded object-cover"
+              src="https://images.unsplash.com/photo-1550583724-b2692b85b150?w=200" />
+            <div class="flex-1">
+              <h2 class="font-bold text-gray-800 dark:text-gray-100">حليب طازج (١ لتر)</h2>
+              <p class="text-primary font-semibold text-lg">٦.٥٠ ر.س</p>
+              <div class="flex items-center justify-between mt-2">
+                <div class="flex items-center space-x-3 space-x-reverse bg-gray-100 dark:bg-gray-700 rounded-full">
+                  <button onclick="updateQuantity('milk', -1)" class="p-2 text-accent">
+                    <span class="material-symbols-outlined text-base">remove</span>
+                  </button>
+                  <span class="px-2 font-bold text-gray-800 dark:text-gray-200" id="qty-milk">١</span>
+                  <button onclick="updateQuantity('milk', 1)" class="p-2 text-accent">
+                    <span class="material-symbols-outlined text-base">add</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <button onclick="removeItem('milk')" class="text-gray-400 dark:text-gray-500 self-start">
+              <span class="material-symbols-outlined">delete</span>
+            </button>
+          </div>
+        </div>
+        <div class="mt-6 bg-white dark:bg-gray-800 rounded-lg p-4">
+          <div class="flex justify-between items-center mb-2">
+            <span class="text-gray-600 dark:text-gray-400">المجموع الفرعي:</span>
+            <span class="font-bold" id="subtotal">٤٤.٠٠ ر.س</span>
+          </div>
+          <div class="flex justify-between items-center mb-2">
+            <span class="text-gray-600 dark:text-gray-400">رسوم التوصيل:</span>
+            <span class="font-bold">٥.٠٠ ر.س</span>
+          </div>
+          <hr class="my-2" />
+          <div class="flex justify-between items-center">
+            <span class="text-lg font-bold">الإجمالي:</span>
+            <span class="text-lg font-bold text-primary" id="total">٤٩.٠٠ ر.س</span>
+          </div>
+        </div>
+        <button onclick="window.location.href='checkout_address.html'"
+          class="w-full mt-4 bg-primary text-white font-bold py-4 px-4 rounded-lg shadow-md hover:bg-primary/90 transition-colors">
+          متابعة الدفع
+        </button>
+      </main>
+    </div>
+  </div>
+
+  <!-- شريط التنقل السفلي -->
+  <nav
+    class="fixed bottom-0 left-0 right-0 max-w-sm mx-auto bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 shadow-lg">
+    <div class="flex justify-around h-16">
+      <button onclick="window.location.href='home.html'"
+        class="flex flex-col items-center justify-center flex-grow text-gray-500 hover:text-primary">
+        <span class="material-symbols-outlined text-2xl">home</span>
+        <span class="text-xs mt-1">الرئيسية</span>
+      </button>
+      <button onclick="window.location.href='categories.html'"
+        class="flex flex-col items-center justify-center flex-grow text-gray-500 hover:text-primary">
+        <span class="material-symbols-outlined text-2xl">grid_view</span>
+        <span class="text-xs mt-1">الأقسام</span>
+      </button>
+      <button onclick="window.location.href='orders.html'"
+        class="flex flex-col items-center justify-center flex-grow text-gray-500 hover:text-primary">
+        <span class="material-symbols-outlined text-2xl">receipt_long</span>
+        <span class="text-xs mt-1">طلباتي</span>
+      </button>
+      <button onclick="window.location.href='cart.html'"
+        class="flex flex-col items-center justify-center flex-grow text-primary bg-green-50">
+        <span class="material-symbols-outlined text-2xl">shopping_bag</span>
+        <span class="text-xs font-bold mt-1">السلة</span>
+      </button>
+      <button onclick="window.location.href='favorites.html'"
+        class="flex flex-col items-center justify-center flex-grow text-gray-500 hover:text-primary">
+        <span class="material-symbols-outlined text-2xl">favorite</span>
+        <span class="text-xs mt-1">المفضلة</span>
+      </button>
+      <button onclick="window.location.href='profile.html'"
+        class="flex flex-col items-center justify-center flex-grow text-gray-500 hover:text-primary">
+        <span class="material-symbols-outlined text-2xl">person</span>
+        <span class="text-xs mt-1">حسابي</span>
+      </button>
+    </div>
+  </nav>
+
+  <script>
+    let cartItems = {
+      rice: { quantity: 1, price: 32.50 },
+      banana: { quantity: 2, price: 4.95 },
+      milk: { quantity: 1, price: 6.50 }
+    };
+
+    function updateQuantity(item, change) {
+      if (cartItems[item]) {
+        cartItems[item].quantity += change;
+        if (cartItems[item].quantity <= 0) {
+          delete cartItems[item];
+          // إعادة تحميل الصفحة لإزالة العنصر
+          location.reload();
+          return;
+        }
+        document.getElementById(`qty-${item}`).textContent = cartItems[item].quantity;
+        updateTotal();
+      }
+    }
+
+    function removeItem(item) {
+      if (cartItems[item]) {
+        delete cartItems[item];
+        // إعادة تحميل الصفحة لإزالة العنصر
+        location.reload();
+      }
+    }
+
+    function updateTotal() {
+      let subtotal = 0;
+      Object.values(cartItems).forEach(item => {
+        subtotal += item.quantity * item.price;
+      });
+
+      const shipping = 5.00;
+      const total = subtotal + shipping;
+
+      document.getElementById('subtotal').textContent = subtotal.toFixed(2) + ' ر.س';
+      document.getElementById('total').textContent = total.toFixed(2) + ' ر.س';
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      updateTotal();
+    });
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حسابي - الصالة الاقتصادية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .profile-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px;
+            background: white;
+            border-radius: 12px;
+            margin: 8px 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-200">
+    <div class="max-w-sm mx-auto bg-background-light dark:bg-background-dark shadow-lg">
+        <div class="flex flex-col min-h-screen">
+            <main class="flex-grow pb-24">
+                <header class="p-4 bg-background-light dark:bg-background-dark sticky top-0 z-20">
+                    <div class="flex justify-between items-center">
+                        <button onclick="window.location.href='home.html'" class="text-slate-700 dark:text-slate-300">
+                            <span class="material-icons-outlined">arrow_back</span>
+                        </button>
+                        <h1 class="text-2xl font-black text-primary">حسابي</h1>
+                        <div class="w-8"></div>
+                    </div>
+                </header>
+
+                <div class="p-4">
+                    <!-- معلومات المستخدم -->
+                    <div class="bg-white rounded-lg p-6 mb-6 text-center shadow-sm">
+                        <div class="w-24 h-24 bg-[#6B8E23] rounded-full mx-auto mb-4 flex items-center justify-center">
+                            <span class="material-icons-outlined text-white text-4xl">person</span>
+                        </div>
+                        <h2 class="text-xl font-bold text-gray-800">أحمد محمد</h2>
+                        <p class="text-gray-500">ahmed@example.com</p>
+                        <p class="text-gray-500">+966 50 123 4567</p>
+                    </div>
+
+                    <!-- قائمة الخيارات -->
+                    <div class="space-y-2">
+                        <div class="profile-item">
+                            <div class="flex items-center">
+                                <span class="material-icons-outlined ml-3 text-[#6B8E23]">shopping_bag</span>
+                                <span class="font-bold">طلباتي</span>
+                            </div>
+                            <span class="material-icons-outlined text-gray-400">chevron_right</span>
+                        </div>
+
+                        <div class="profile-item">
+                            <div class="flex items-center">
+                                <span class="material-icons-outlined ml-3 text-[#6B8E23]">favorite</span>
+                                <span class="font-bold">المفضلة</span>
+                            </div>
+                            <span class="material-icons-outlined text-gray-400">chevron_right</span>
+                        </div>
+
+                        <div class="profile-item">
+                            <div class="flex items-center">
+                                <span class="material-icons-outlined ml-3 text-[#6B8E23]">location_on</span>
+                                <span class="font-bold">عناويني</span>
+                            </div>
+                            <span class="material-icons-outlined text-gray-400">chevron_right</span>
+                        </div>
+
+                        <div class="profile-item">
+                            <div class="flex items-center">
+                                <span class="material-icons-outlined ml-3 text-[#6B8E23]">payment</span>
+                                <span class="font-bold">طرق الدفع</span>
+                            </div>
+                            <span class="material-icons-outlined text-gray-400">chevron_right</span>
+                        </div>
+
+                        <div class="profile-item">
+                            <div class="flex items-center">
+                                <span class="material-icons-outlined ml-3 text-[#6B8E23]">settings</span>
+                                <span class="font-bold">الإعدادات</span>
+                            </div>
+                            <span class="material-icons-outlined text-gray-400">chevron_right</span>
+                        </div>
+
+                        <div class="profile-item">
+                            <div class="flex items-center">
+                                <span class="material-icons-outlined ml-3 text-[#6B8E23]">help</span>
+                                <span class="font-bold">المساعدة والدعم</span>
+                            </div>
+                            <span class="material-icons-outlined text-gray-400">chevron_right</span>
+                        </div>
+
+                        <div class="profile-item">
+                            <div class="flex items-center">
+                                <span class="material-icons-outlined ml-3 text-[#6B8E23]">info</span>
+                                <span class="font-bold">حول التطبيق</span>
+                            </div>
+                            <span class="material-icons-outlined text-gray-400">chevron_right</span>
+                        </div>
+                    </div>
+
+                    <!-- إحصائيات سريعة -->
+                    <div class="mt-8 bg-white rounded-lg p-4 shadow-sm">
+                        <h3 class="font-bold text-lg mb-4">إحصائياتي</h3>
+                        <div class="grid grid-cols-2 gap-4 text-center">
+                            <div class="bg-gray-50 rounded-lg p-3">
+                                <div class="text-2xl font-bold text-[#6B8E23]">12</div>
+                                <div class="text-sm text-gray-600">طلب مكتمل</div>
+                            </div>
+                            <div class="bg-gray-50 rounded-lg p-3">
+                                <div class="text-2xl font-bold text-[#6B8E23]">3</div>
+                                <div class="text-sm text-gray-600">قيد التوصيل</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- زر تسجيل الخروج -->
+                    <button class="w-full mt-8 bg-red-500 text-white font-bold py-4 px-4 rounded-lg">
+                        تسجيل الخروج
+                    </button>
+
+                    <div class="text-center mt-4 text-gray-500 text-sm">
+                        الإصدار 1.0.0
+                    </div>
+            </main>
+
+            <!-- شريط التنقل السفلي -->
+            <nav class="fixed bottom-0 left-0 right-0 max-w-sm mx-auto bg-white border-t border-gray-200 shadow-lg">
+                <div class="flex justify-around h-16">
+                    <button onclick="window.location.href='home.html'"
+                        class="flex flex-col items-center justify-center flex-grow text-gray-500 hover:text-[#6B8E23]">
+                        <span class="material-icons-outlined text-2xl">home</span>
+                        <span class="text-xs mt-1">الرئيسية</span>
+                    </button>
+                    <button onclick="window.location.href='categories.html'"
+                        class="flex flex-col items-center justify-center flex-grow text-gray-500 hover:text-[#6B8E23]">
+                        <span class="material-icons-outlined text-2xl">grid_view</span>
+                        <span class="text-xs mt-1">الأقسام</span>
+                    </button>
+                    <button onclick="window.location.href='orders.html'"
+                        class="flex flex-col items-center justify-center flex-grow text-gray-500 hover:text-[#6B8E23]">
+                        <span class="material-icons-outlined text-2xl">receipt_long</span>
+                        <span class="text-xs mt-1">طلباتي</span>
+                    </button>
+                    <button onclick="window.location.href='orders.html'"
+                        class="flex flex-col items-center justify-center flex-grow text-gray-500 hover:text-[#6B8E23]">
+                        <span class="material-icons-outlined text-2xl">receipt_long</span>
+                        <span class="text-xs mt-1">طلباتي</span>
+                    </button>
+                    <button onclick="window.location.href='cart.html'"
+                        class="flex flex-col items-center justify-center flex-grow text-gray-500 hover:text-[#6B8E23] relative">
+                        <span class="material-icons-outlined text-2xl">shopping_bag</span>
+                        <span class="text-xs mt-1">السلة</span>
+                        <span
+                            class="absolute -top-1 -right-1 bg-[#E63946] text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-bold">3</span>
+                    </button>
+                    <button onclick="window.location.href='favorites.html'"
+                        class="flex flex-col items-center justify-center flex-grow text-gray-500 hover:text-[#6B8E23]">
+                        <span class="material-icons-outlined text-2xl">favorite_border</span>
+                        <span class="text-xs mt-1">المفضلة</span>
+                    </button>
+                    <button onclick="window.location.href='profile.html'"
+                        class="flex flex-col items-center justify-center flex-grow text-[#6B8E23] bg-green-50">
+                        <span class="material-icons-outlined text-2xl">person_outline</span>
+                        <span class="text-xs font-bold mt-1">حسابي</span>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </div>
+</body>
+
+</html>

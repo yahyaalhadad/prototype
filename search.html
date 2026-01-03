@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+
+<html class="light" dir="rtl" lang="ar">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>نتائج البحث - الصالة الاقتصادية</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&amp;family=IBM+Plex+Sans+Arabic:wght@400;500;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script>
+        // إخفاء تحذير CDN للمشروع التجريبي
+        const originalWarn = console.warn;
+        console.warn = function (warning) {
+            if (!warning.includes('cdn.tailwindcss.com should not be used in production')) {
+                originalWarn.apply(console, arguments);
+            }
+        };
+    </script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0a703c",
+                        "primary-dark": "#054d28",
+                        "accent-red": "#d32f2f",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#102219",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1a2c24",
+                        "text-main": "#111814",
+                        "text-sub": "#618975",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "IBM Plex Sans Arabic", "sans-serif"],
+                        "sans": ["IBM Plex Sans Arabic", "Plus Jakarta Sans", "sans-serif"],
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "0.75rem",
+                        "xl": "1rem",
+                        "full": "9999px"
+                    },
+                    boxShadow: {
+                        'soft': '0 2px 8px rgba(0, 0, 0, 0.05)',
+                        'card': '0 4px 12px rgba(0, 0, 0, 0.06)',
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'IBM Plex Sans Arabic', 'Plus Jakarta Sans', sans-serif;
+        }
+
+        /* Custom scrollbar hiding for horizontal scroll areas */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-text-main min-h-screen pb-20 overflow-x-hidden transition-colors duration-200">
+    <div class="max-w-sm mx-auto bg-background-light dark:bg-background-dark shadow-lg">
+        <div class="flex flex-col min-h-screen">
+            <main class="flex-grow pb-24">
+                <!-- Header Section: Search & Cart -->
+                <header class="sticky top-0 z-50 bg-surface-light dark:bg-surface-dark shadow-sm px-4 pt-4 pb-3">
+                    <div class="flex items-center gap-3 mb-2">
+                        <!-- Back Button -->
+                        <button onclick="window.location.href='home.html'"
+                            class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors shrink-0 text-text-main dark:text-white">
+                            <span class="material-symbols-outlined text-[24px]">arrow_forward</span>
+                        </button>
+                        <!-- Search Bar -->
+                        <div class="flex-1 relative">
+                            <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                                <span class="material-symbols-outlined text-text-sub text-[20px]">search</span>
+                            </div>
+                            <input id="search-input"
+                                class="block w-full rounded-lg border-none bg-background-light dark:bg-black/20 py-2.5 pr-10 pl-10 text-text-main dark:text-white placeholder:text-text-sub focus:ring-2 focus:ring-primary text-sm font-medium"
+                                placeholder="ابحث عن المنتجات..." type="text" value="طماطم" />
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center">
+                                <button class="text-text-sub hover:text-text-main dark:hover:text-white">
+                                    <span class="material-symbols-outlined text-[20px]">close</span>
+                                </button>
+                            </div>
+                        </div>
+                        <!-- Cart Button -->
+                        <button onclick="window.location.href='cart.html'"
+                            class="w-10 h-10 flex items-center justify-center rounded-full relative hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors shrink-0 text-text-main dark:text-white">
+                            <span class="material-symbols-outlined text-[24px]">shopping_cart</span>
+                            <span
+                                class="absolute top-1 left-1 bg-accent-red text-white text-[10px] font-bold h-4 w-4 flex items-center justify-center rounded-full border-2 border-surface-light dark:border-surface-dark">3</span>
+                        </button>
+                    </div>
+                </header>
+                <!-- Filters & Sort -->
+                <div
+                    class="bg-surface-light dark:bg-surface-dark px-4 pb-4 border-b border-gray-100 dark:border-gray-800">
+                    <!-- Filter Chips Row -->
+                    <div class="flex gap-2 overflow-x-auto no-scrollbar pb-1">
+                        <button
+                            class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-background-light dark:bg-black/20 border border-transparent px-3 active:scale-95 transition-transform">
+                            <span
+                                class="material-symbols-outlined text-[20px] text-text-main dark:text-white">tune</span>
+                        </button>
+                        <button
+                            class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-primary text-white px-3 shadow-sm active:scale-95 transition-transform">
+                            <span class="text-sm font-medium">الكل</span>
+                        </button>
+                        <button
+                            class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-background-light dark:bg-black/20 px-3 hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors">
+                            <span class="text-text-main dark:text-white text-sm font-medium">الأقل سعراً</span>
+                            <span
+                                class="material-symbols-outlined text-[18px] text-text-main dark:text-white">keyboard_arrow_down</span>
+                        </button>
+                        <button
+                            class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-background-light dark:bg-black/20 px-3 hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors">
+                            <span class="text-text-main dark:text-white text-sm font-medium">العروض</span>
+                        </button>
+                        <button
+                            class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-background-light dark:bg-black/20 px-3 hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors">
+                            <span class="text-text-main dark:text-white text-sm font-medium">خضروات</span>
+                        </button>
+                        <button
+                            class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-background-light dark:bg-black/20 px-3 hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors">
+                            <span class="text-text-main dark:text-white text-sm font-medium">عضوي</span>
+                        </button>
+                    </div>
+                    <!-- Results Count -->
+                    <div class="mt-4 flex items-center justify-between">
+                        <h3 class="text-text-main dark:text-white text-base font-bold">٢٤ نتيجة بحث</h3>
+                        <span class="text-xs text-text-sub">ترتيب حسب الصلة</span>
+                    </div>
+                </div>
+                <!-- Main Content Area: Product Grid -->
+                <!-- فلاتر البحث -->
+                <div class="bg-white rounded-lg p-4 mb-4">
+                    <div class="flex space-x-2 space-x-reverse overflow-x-auto">
+                        <button
+                            class="bg-[#6B8E23] text-white px-4 py-2 rounded-full text-sm whitespace-nowrap">الكل</button>
+                        <button
+                            class="bg-gray-200 text-gray-700 px-4 py-2 rounded-full text-sm whitespace-nowrap hover:bg-[#6B8E23] hover:text-white">خضروات</button>
+                        <button
+                            class="bg-gray-200 text-gray-700 px-4 py-2 rounded-full text-sm whitespace-nowrap hover:bg-[#6B8E23] hover:text-white">فواكه</button>
+                        <button
+                            class="bg-gray-200 text-gray-700 px-4 py-2 rounded-full text-sm whitespace-nowrap hover:bg-[#6B8E23] hover:text-white">ألبان</button>
+                        <button
+                            class="bg-gray-200 text-gray-700 px-4 py-2 rounded-full text-sm whitespace-nowrap hover:bg-[#6B8E23] hover:text-white">مخبوزات</button>
+                        <button
+                            class="bg-gray-200 text-gray-700 px-4 py-2 rounded-full text-sm whitespace-nowrap hover:bg-[#6B8E23] hover:text-white">لحوم</button>
+                    </div>
+                </div>
+
+                <!-- نتائج البحث -->
+                <div class="space-y-4" id="search-results">
+                    <div class="bg-white rounded-lg p-4 search-result cursor-pointer" onclick="showProduct('tomatoes')">
+                        <div class="flex items-center space-x-4 space-x-reverse">
+                            <img src="https://images.unsplash.com/photo-1546470427-e9e826abd10f?w=100" alt="طماطم طازجة"
+                                class="w-16 h-16 rounded object-cover">
+                            <div class="flex-1">
+                                <h3 class="font-bold text-gray-800">طماطم طازجة</h3>
+                                <p class="text-sm text-gray-600">خضروات طازجة</p>
+                                <div class="flex items-center justify-between mt-1">
+                                    <span class="font-bold text-[#6B8E23]">5.95 ر.س</span>
+                                    <div class="flex items-center">
+                                        <span class="text-yellow-400 text-sm">★★★★☆</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <button onclick="addToCart(event, 'طماطم طازجة')"
+                                class="bg-[#6B8E23] text-white w-10 h-10 rounded-full flex items-center justify-center">
+                                <span class="material-icons-outlined text-lg">add</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg p-4 search-result cursor-pointer" onclick="showProduct('milk')">
+                        <div class="flex items-center space-x-4 space-x-reverse">
+                            <img src="https://images.unsplash.com/photo-1550583724-b2692b85b150?w=100" alt="حليب طازج"
+                                class="w-16 h-16 rounded object-cover">
+                            <div class="flex-1">
+                                <h3 class="font-bold text-gray-800">حليب طازج</h3>
+                                <p class="text-sm text-gray-600">منتجات ألبان</p>
+                                <div class="flex items-center justify-between mt-1">
+                                    <span class="font-bold text-[#6B8E23]">6.50 ر.س</span>
+                                    <div class="flex items-center">
+                                        <span class="text-yellow-400 text-sm">★★★★★</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <button onclick="addToCart(event, 'حليب طازج')"
+                                class="bg-[#6B8E23] text-white w-10 h-10 rounded-full flex items-center justify-center">
+                                <span class="material-icons-outlined text-lg">add</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg p-4 search-result cursor-pointer" onclick="showProduct('bread')">
+                        <div class="flex items-center space-x-4 space-x-reverse">
+                            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=100" alt="خبز عربي"
+                                class="w-16 h-16 rounded object-cover">
+                            <div class="flex-1">
+                                <h3 class="font-bold text-gray-800">خبز عربي طازج</h3>
+                                <p class="text-sm text-gray-600">مخبوزات يومية</p>
+                                <div class="flex items-center justify-between mt-1">
+                                    <span class="font-bold text-[#6B8E23]">2.50 ر.س</span>
+                                    <div class="flex items-center">
+                                        <span class="text-yellow-400 text-sm">★★★★☆</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <button onclick="addToCart(event, 'خبز عربي')"
+                                class="bg-[#6B8E23] text-white w-10 h-10 rounded-full flex items-center justify-center">
+                                <span class="material-icons-outlined text-lg">add</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg p-4 search-result cursor-pointer" onclick="showProduct('apples')">
+                        <div class="flex items-center space-x-4 space-x-reverse">
+                            <img src="https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?w=100" alt="تفاح أحمر"
+                                class="w-16 h-16 rounded object-cover">
+                            <div class="flex-1">
+                                <h3 class="font-bold text-gray-800">تفاح أحمر</h3>
+                                <p class="text-sm text-gray-600">فواكه طازجة</p>
+                                <div class="flex items-center justify-between mt-1">
+                                    <span class="font-bold text-[#6B8E23]">12.90 ر.س</span>
+                                    <div class="flex items-center">
+                                        <span class="text-yellow-400 text-sm">★★★★★</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <button onclick="addToCart(event, 'تفاح أحمر')"
+                                class="bg-[#6B8E23] text-white w-10 h-10 rounded-full flex items-center justify-center">
+                                <span class="material-icons-outlined text-lg">add</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg p-4 search-result cursor-pointer" onclick="showProduct('eggs')">
+                        <div class="flex items-center space-x-4 space-x-reverse">
+                            <img src="https://images.unsplash.com/photo-1506976785307-8732e854ad03?w=100" alt="بيض بلدي"
+                                class="w-16 h-16 rounded object-cover">
+                            <div class="flex-1">
+                                <h3 class="font-bold text-gray-800">بيض بلدي</h3>
+                                <p class="text-sm text-gray-600">منتجات ألبان</p>
+                                <div class="flex items-center justify-between mt-1">
+                                    <span class="font-bold text-[#6B8E23]">10.00 ر.س</span>
+                                    <div class="flex items-center">
+                                        <span class="text-yellow-400 text-sm">★★★★☆</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <button onclick="addToCart(event, 'بيض بلدي')"
+                                class="bg-[#6B8E23] text-white w-10 h-10 rounded-full flex items-center justify-center">
+                                <span class="material-icons-outlined text-lg">add</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- اقتراحات البحث -->
+                <div class="bg-white rounded-lg p-4 mt-6">
+                    <h3 class="font-bold text-lg mb-3">البحث الشائع</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <button onclick="searchTerm('طماطم')"
+                            class="bg-gray-100 text-gray-700 px-3 py-2 rounded-full text-sm hover:bg-[#6B8E23] hover:text-white">طماطم</button>
+                        <button onclick="searchTerm('حليب')"
+                            class="bg-gray-100 text-gray-700 px-3 py-2 rounded-full text-sm hover:bg-[#6B8E23] hover:text-white">حليب</button>
+                        <button onclick="searchTerm('خبز')"
+                            class="bg-gray-100 text-gray-700 px-3 py-2 rounded-full text-sm hover:bg-[#6B8E23] hover:text-white">خبز</button>
+                        <button onclick="searchTerm('فواكه')"
+                            class="bg-gray-100 text-gray-700 px-3 py-2 rounded-full text-sm hover:bg-[#6B8E23] hover:text-white">فواكه</button>
+                        <button onclick="searchTerm('خضروات')"
+                            class="bg-gray-100 text-gray-700 px-3 py-2 rounded-full text-sm hover:bg-[#6B8E23] hover:text-white">خضروات</button>
+                        <button onclick="searchTerm('ألبان')"
+                            class="bg-gray-100 text-gray-700 px-3 py-2 rounded-full text-sm hover:bg-[#6B8E23] hover:text-white">ألبان</button>
+                    </div>
+                </div>
+            </main>
+
+            <!-- شريط التنقل السفلي -->
+            <nav class="fixed bottom-0 left-0 right-0 max-w-sm mx-auto bg-white border-t border-gray-200 shadow-lg">
+                <div class="flex justify-around h-16">
+                    <button onclick="window.location.href='home.html'"
+                        class="flex flex-col items-center justify-center flex-grow text-gray-500 hover:text-primary">
+                        <span class="material-icons-outlined text-2xl">home</span>
+                        <span class="text-xs mt-1">الرئيسية</span>
+                    </button>
+                    <button onclick="window.location.href='categories.html'"
+                        class="flex flex-col items-center justify-center flex-grow text-gray-500 hover:text-primary">
+                        <span class="material-icons-outlined text-2xl">grid_view</span>
+                        <span class="text-xs mt-1">الأقسام</span>
+                    </button>
+                    <button onclick="window.location.href='orders.html'"
+                        class="flex flex-col items-center justify-center flex-grow text-gray-500 hover:text-primary">
+                        <span class="material-icons-outlined text-2xl">receipt_long</span>
+                        <span class="text-xs mt-1">طلباتي</span>
+                    </button>
+                    <button onclick="window.location.href='orders.html'"
+                        class="flex flex-col items-center justify-center flex-grow text-gray-500 hover:text-primary">
+                        <span class="material-icons-outlined text-2xl">receipt_long</span>
+                        <span class="text-xs mt-1">طلباتي</span>
+                    </button>
+                    <button onclick="window.location.href='cart.html'"
+                        class="flex flex-col items-center justify-center flex-grow text-gray-500 hover:text-primary relative">
+                        <span class="material-icons-outlined text-2xl">shopping_bag</span>
+                        <span class="text-xs mt-1">السلة</span>
+                        <span
+                            class="absolute -top-1 -right-1 bg-warm-red text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-bold">3</span>
+                    </button>
+                    <button onclick="window.location.href='profile.html'"
+                        class="flex flex-col items-center justify-center flex-grow text-gray-500 hover:text-primary">
+                        <span class="material-icons-outlined text-2xl">person_outline</span>
+                        <span class="text-xs mt-1">حسابي</span>
+                    </button>
+                </div>
+            </nav>
+
+            <script>
+                function addToCart(event, productName) {
+                    event.stopPropagation();
+                    alert(`تم إضافة ${productName} إلى السلة!`);
+                }
+
+                function showProduct(product) {
+                    window.location.href = 'product.html';
+                }
+
+                function searchTerm(term) {
+                    document.getElementById('search-input').value = term;
+                    // يمكن إضافة منطق البحث الحقيقي هنا
+                }
+
+                // إضافة وظيفة البحث المباشر
+                document.addEventListener('DOMContentLoaded', function () {
+                    const searchInput = document.getElementById('search-input');
+                    if (searchInput) {
+                        searchInput.addEventListener('input', function () {
+                            const searchTerm = this.value.toLowerCase();
+                            const results = document.querySelectorAll('#search-results > div');
+
+                            results.forEach(result => {
+                                const productNameElement = result.querySelector('h3');
+                                if (productNameElement) {
+                                    const productName = productNameElement.textContent.toLowerCase();
+                                    if (productName.includes(searchTerm) || searchTerm === '') {
+                                        result.style.display = 'block';
+                                    } else {
+                                        result.style.display = 'none';
+                                    }
+                                }
+                            });
+                        });
+                    }
+                });
+            </script>
+</body>
+
+</html>

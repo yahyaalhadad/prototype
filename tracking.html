@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>تتبع الطلب</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <script>
+        // إخفاء تحذير CDN للمشروع التجريبي
+        const originalWarn = console.warn;
+        console.warn = function (warning) {
+            if (!warning.includes('cdn.tailwindcss.com should not be used in production')) {
+                originalWarn.apply(console, arguments);
+            }
+        };
+    </script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#6B8E23", // Olive Green
+                        "warm-red": "#D9534F",
+                        "background-light": "#FFFFFF",
+                        "background-dark": "#121212",
+                        "surface-light": "#F5F5F5",
+                        "surface-dark": "#1E1E1E",
+                        "text-light": "#1F2937",
+                        "text-dark": "#E5E7EB",
+                        "subtext-light": "#6B7280",
+                        "subtext-dark": "#9CA3AF"
+                    },
+                    fontFamily: {
+                        display: ["Tajawal", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "1rem",
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        .timeline-item:not(:last-child)::before {
+            content: "";
+            position: absolute;
+            top: 1.25rem;
+            right: 0.5rem;
+            width: 2px;
+            height: calc(100% - 1rem);
+            background-color: #D1D5DB;
+        }
+
+        .timeline-item.active:not(:last-child)::before {
+            background: linear-gradient(#6B8E23, #D1D5DB);
+        }
+
+        .timeline-item.completed:not(:last-child)::before {
+            background-color: #6B8E23;
+        }
+
+        .dark .timeline-item:not(:last-child)::before {
+            background-color: #4B5563;
+        }
+
+        .dark .timeline-item.active:not(:last-child)::before {
+            background: linear-gradient(#6B8E23, #4B5563);
+        }
+
+        .dark .timeline-item.completed:not(:last-child)::before {
+            background-color: #6B8E23;
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark font-body text-gray-900 dark:text-gray-100 transition-colors duration-200">
+    <div
+        class="relative flex h-full min-h-screen w-full flex-col max-w-md mx-auto bg-background-light dark:bg-background-dark shadow-2xl overflow-hidden border-x border-gray-100 dark:border-gray-800">
+        <!-- Top App Bar -->
+        <header
+            class="sticky top-0 z-50 bg-surface-light dark:bg-surface-dark px-4 py-3 shadow-sm flex items-center justify-between">
+            <button onclick="window.location.href='home.html'"
+                class="flex size-10 items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-800 dark:text-white transition-colors">
+                <span class="material-symbols-outlined">arrow_forward</span>
+            </button>
+            <h1 class="text-lg font-bold text-gray-900 dark:text-white flex-1 text-center pl-10">تتبع الطلب</h1>
+            <button onclick="window.location.href='tracking.html'"
+                class="flex size-10 items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-800 dark:text-white transition-colors">
+                <span class="material-symbols-outlined">local_shipping</span>
+            </button>
+        </header>
+        <!-- Orders List -->
+        <main class="flex-1 flex flex-col gap-4 p-4 pb-24 overflow-y-auto">
+            <div class="relative flex-grow h-1/2">
+                <img alt="خريطة تفاعلية تظهر موقع المتجر والمندوب." class="absolute inset-0 w-full h-full object-cover"
+                    src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800" />
+                <div class="absolute inset-0 bg-black/30"></div>
+                <div
+                    class="absolute bottom-4 right-4 left-4 p-4 bg-surface-light dark:bg-surface-dark rounded-lg shadow-lg">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">الوقت المتوقع للوصول</p>
+                            <p class="text-lg font-bold text-primary">04:30 مساءً</p>
+                        </div>
+                        <div class="flex items-center justify-center w-14 h-14 bg-primary/10 rounded-full">
+                            <span class="material-symbols-outlined text-primary text-3xl">local_shipping</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="space-y-6 pt-4 pr-4">
+                <div class="timeline-item relative flex items-start completed">
+                    <div
+                        class="flex-shrink-0 w-5 h-5 bg-primary rounded-full border-2 border-background-light dark:border-background-dark z-10 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-white text-xs">done</span>
+                    </div>
+                    <div class="mr-4">
+                        <h3 class="font-bold text-primary">تم استلام الطلب</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">طلبك قيد المراجعة الآن.</p>
+                    </div>
+                    <div class="mr-auto text-sm text-gray-500 dark:text-gray-400">04:05م</div>
+                </div>
+                <div class="timeline-item relative flex items-start completed">
+                    <div
+                        class="flex-shrink-0 w-5 h-5 bg-primary rounded-full border-2 border-background-light dark:border-background-dark z-10 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-white text-xs">done</span>
+                    </div>
+                    <div class="mr-4">
+                        <h3 class="font-bold text-primary">قيد التجهيز</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">يقوم فريقنا بتجهيز طلبك بعناية.</p>
+                    </div>
+                    <div class="mr-auto text-sm text-gray-500 dark:text-gray-400">04:10م</div>
+                </div>
+                <div class="timeline-item relative flex items-start active">
+                    <div
+                        class="flex-shrink-0 w-5 h-5 bg-primary rounded-full border-2 border-background-light dark:border-background-dark z-10 animate-pulse">
+                    </div>
+                    <div class="mr-4">
+                        <h3 class="font-bold text-gray-900 dark:text-gray-100">في الطريق</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">المندوب في طريقه إليك الآن.</p>
+                    </div>
+                    <div class="mr-auto text-sm text-gray-500 dark:text-gray-400">04:15م</div>
+                </div>
+                <div class="timeline-item relative flex items-start">
+                    <div
+                        class="flex-shrink-0 w-5 h-5 bg-gray-300 dark:bg-gray-600 rounded-full border-2 border-background-light dark:border-background-dark z-10">
+                    </div>
+                    <div class="mr-4">
+                        <h3 class="font-bold text-gray-400 dark:text-gray-500">تم التسليم</h3>
+                        <p class="text-sm text-gray-400 dark:text-gray-500">استمتع بمنتجاتك!</p>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-6 border-gray-200 dark:border-gray-700" />
+            <div>
+                <h3 class="font-bold mb-4">معلومات المندوب</h3>
+                <div class="flex items-center justify-between p-3 bg-surface-light dark:bg-surface-dark rounded-lg">
+                    <div class="flex items-center space-x-3 space-x-reverse">
+                        <img alt="صورة المندوب علي" class="w-12 h-12 rounded-full object-cover"
+                            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150" />
+                        <div>
+                            <p class="font-semibold">علي محمد</p>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">مندوب توصيل</p>
+                        </div>
+                    </div>
+                    <a class="flex items-center justify-center w-10 h-10 bg-primary/20 text-primary rounded-full"
+                        href="tel:966501234567">
+                        <span class="material-symbols-outlined">call</span>
+                    </a>
+                </div>
+            </div>
+            <!-- End of list spacer -->
+            <div class="h-4 w-full"></div>
+        </main>
+    </div>
+</body>
+
+</html>

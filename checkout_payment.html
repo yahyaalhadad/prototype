@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>إتمام الطلب - الدفع - الصالة الاقتصادية المتقدمة</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+    <style>
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#5A6E56",
+                        "background-light": "#F8F9FA",
+                        "background-dark": "#121212",
+                        "card-light": "#FFFFFF",
+                        "card-dark": "#1E1E1E",
+                        "text-light-primary": "#18181B",
+                        "text-dark-primary": "#E4E4E7",
+                        "text-light-secondary": "#71717A",
+                        "text-dark-secondary": "#A1A1AA",
+                        "border-light": "#E4E4E7",
+                        "border-dark": "#3F3F46",
+                        "accent": "#DC2626",
+                    },
+                    fontFamily: {
+                        display: ["Tajawal", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.75rem",
+                        lg: "1rem",
+                        xl: "1.25rem"
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display">
+    <div class="container mx-auto max-w-md">
+        <div class="flex flex-col h-screen">
+            <header
+                class="p-4 flex items-center justify-between bg-card-light dark:bg-card-dark border-b border-border-light dark:border-border-dark">
+                <button onclick="window.location.href='checkout_address.html'"
+                    class="text-text-light-primary dark:text-text-dark-primary">
+                    <span class="material-icons-outlined">arrow_back</span>
+                </button>
+                <h1 class="text-xl font-bold text-text-light-primary dark:text-text-dark-primary">إتمام الطلب</h1>
+                <div class="w-8"></div>
+            </header>
+            <main class="flex-grow p-4 overflow-y-auto">
+                <div class="mb-6">
+                    <div class="flex space-x-4 space-x-reverse mb-4">
+                        <button onclick="window.location.href='checkout_address.html'"
+                            class="flex-1 py-2 px-4 rounded-lg font-medium bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300">العنوان</button>
+                        <button class="flex-1 py-2 px-4 rounded-lg font-medium bg-primary text-white">الدفع</button>
+                    </div>
+                    <div
+                        class="bg-card-light dark:bg-card-dark rounded-xl p-6 shadow-sm border border-border-light dark:border-border-dark mb-4">
+                        <h2
+                            class="text-lg font-bold mb-4 flex items-center text-text-light-primary dark:text-text-dark-primary">
+                            <span class="material-icons-outlined ml-2 text-primary">payment</span>
+                            طريقة الدفع
+                        </h2>
+                        <div class="space-y-3">
+                            <label
+                                class="flex items-center p-4 border border-border-light dark:border-border-dark rounded-lg cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                                <input name="payment_method" type="radio" class="ml-3" checked />
+                                <div class="flex items-center flex-1">
+                                    <span class="material-icons-outlined ml-2 text-blue-600">credit_card</span>
+                                    <div>
+                                        <div class="font-medium text-text-light-primary dark:text-text-dark-primary">
+                                            البطاقة الائتمانية</div>
+                                        <div class="text-sm text-text-light-secondary dark:text-text-dark-secondary">
+                                            Visa, Mastercard, Mada</div>
+                                    </div>
+                                </div>
+                            </label>
+                            <label
+                                class="flex items-center p-4 border border-border-light dark:border-border-dark rounded-lg cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                                <input name="payment_method" type="radio" class="ml-3" />
+                                <div class="flex items-center flex-1">
+                                    <span
+                                        class="material-icons-outlined ml-2 text-green-600">account_balance_wallet</span>
+                                    <div>
+                                        <div class="font-medium text-text-light-primary dark:text-text-dark-primary">
+                                            الدفع عند الاستلام</div>
+                                        <div class="text-sm text-text-light-secondary dark:text-text-dark-secondary">
+                                            ادفع نقدي عند وصول الطلب</div>
+                                    </div>
+                                </div>
+                            </label>
+                            <label
+                                class="flex items-center p-4 border border-border-light dark:border-border-dark rounded-lg cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                                <input name="payment_method" type="radio" class="ml-3" />
+                                <div class="flex items-center flex-1">
+                                    <span class="material-icons-outlined ml-2 text-orange-600">smartphone</span>
+                                    <div>
+                                        <div class="font-medium text-text-light-primary dark:text-text-dark-primary">
+                                            Apple Pay / Google Pay</div>
+                                        <div class="text-sm text-text-light-secondary dark:text-text-dark-secondary">دفع
+                                            سريع وآمن</div>
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="bg-card-light dark:bg-card-dark rounded-xl p-6 shadow-sm border border-border-light dark:border-border-dark mb-4"
+                        id="card-details" style="display: block;">
+                        <h3 class="font-bold text-lg mb-4 text-text-light-primary dark:text-text-dark-primary">بيانات
+                            البطاقة</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label
+                                    class="block text-sm font-medium mb-2 text-text-light-secondary dark:text-text-dark-secondary">رقم
+                                    البطاقة</label>
+                                <div class="relative">
+                                    <input
+                                        class="w-full pl-12 pr-4 py-3 border border-border-light dark:border-border-dark rounded-lg bg-card-light dark:bg-card-dark text-text-light-primary dark:text-text-dark-primary focus:ring-2 focus:ring-primary focus:border-transparent"
+                                        placeholder="1234 5678 9012 3456" type="text" />
+                                    <span
+                                        class="material-icons-outlined absolute left-3 top-1/2 -translate-y-1/2 text-text-light-secondary dark:text-text-dark-secondary">credit_card</span>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label
+                                        class="block text-sm font-medium mb-2 text-text-light-secondary dark:text-text-dark-secondary">تاريخ
+                                        الانتهاء</label>
+                                    <input
+                                        class="w-full p-3 border border-border-light dark:border-border-dark rounded-lg bg-card-light dark:bg-card-dark text-text-light-primary dark:text-text-dark-primary focus:ring-2 focus:ring-primary focus:border-transparent"
+                                        placeholder="MM/YY" type="text" />
+                                </div>
+                                <div>
+                                    <label
+                                        class="block text-sm font-medium mb-2 text-text-light-secondary dark:text-text-dark-secondary">CVV</label>
+                                    <input
+                                        class="w-full p-3 border border-border-light dark:border-border-dark rounded-lg bg-card-light dark:bg-card-dark text-text-light-primary dark:text-text-dark-primary focus:ring-2 focus:ring-primary focus:border-transparent"
+                                        placeholder="123" type="text" />
+                                </div>
+                            </div>
+                            <div>
+                                <label
+                                    class="block text-sm font-medium mb-2 text-text-light-secondary dark:text-text-dark-secondary">اسم
+                                    حامل البطاقة</label>
+                                <input
+                                    class="w-full p-3 border border-border-light dark:border-border-dark rounded-lg bg-card-light dark:bg-card-dark text-text-light-primary dark:text-text-dark-primary focus:ring-2 focus:ring-primary focus:border-transparent"
+                                    placeholder="الاسم الكامل" type="text" />
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="bg-card-light dark:bg-card-dark rounded-xl p-4 shadow-sm border border-border-light dark:border-border-dark mb-6">
+                        <h3 class="font-bold text-lg mb-3 text-text-light-primary dark:text-text-dark-primary">ملخص
+                            الطلب</h3>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex justify-between text-text-light-secondary dark:text-text-dark-secondary">
+                                <span>أرز بسمتي فاخر (1)</span>
+                                <span>32.50 ر.س</span>
+                            </div>
+                            <div class="flex justify-between text-text-light-secondary dark:text-text-dark-secondary">
+                                <span>موز طازج (2 كيلو)</span>
+                                <span>9.90 ر.س</span>
+                            </div>
+                            <div class="flex justify-between text-text-light-secondary dark:text-text-dark-secondary">
+                                <span>حليب طازج (1 لتر)</span>
+                                <span>6.50 ر.س</span>
+                            </div>
+                            <div class="flex justify-between text-text-light-secondary dark:text-text-dark-secondary">
+                                <span>رسوم التوصيل</span>
+                                <span>5.00 ر.س</span>
+                            </div>
+                            <hr class="my-2" />
+                            <div
+                                class="flex justify-between font-bold text-lg text-text-light-primary dark:text-text-dark-primary">
+                                <span>الإجمالي</span>
+                                <span class="text-primary">53.90 ر.س</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button onclick="completeOrder()"
+                        class="w-full bg-primary text-white font-bold py-4 px-4 rounded-lg shadow-md hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors">
+                        تأكيد الدفع وإتمام الطلب
+                    </button>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('input[name="payment_method"]').forEach(radio => {
+            radio.addEventListener('change', function () {
+                const cardDetails = document.getElementById('card-details');
+                if (this.parentElement.querySelector('.material-icons-outlined').textContent === 'credit_card') {
+                    cardDetails.style.display = 'block';
+                } else {
+                    cardDetails.style.display = 'none';
+                }
+            });
+        });
+
+        function completeOrder() {
+            alert('تم تأكيد طلبك بنجاح! 🎉\nسيتم توصيل طلبك خلال 30-45 دقيقة');
+            window.location.href = 'home.html';
+        }
+    </script>
+
+</body>
+
+</html>

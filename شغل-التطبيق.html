@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تشغيل الصالة الاقتصادية</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #6B8E23, #0A6E3A);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            direction: rtl;
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid white;
+            margin: 0 auto 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .button {
+            background: white;
+            color: #6B8E23;
+            border: none;
+            padding: 15px 40px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 30px;
+            cursor: pointer;
+            margin: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .instructions {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            text-align: right;
+        }
+
+        .instructions h3 {
+            margin-top: 0;
+            color: #FFE066;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .feature {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .feature span {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <img src="logo.jpg" alt="شعار الصالة الاقتصادية" class="logo">
+        <h1>الصالة الاقتصادية المتقدمة</h1>
+
+        <div class="features">
+            <div class="feature">
+                <div><span>🛒</span></div>
+                <strong>سلة مشتريات</strong><br>
+                إضافة وحذف المنتجات
+            </div>
+            <div class="feature">
+                <div><span>🎨</span></div>
+                <strong>تصميم جميل</strong><br>
+                حركات وحلوة
+            </div>
+            <div class="feature">
+                <div><span>📱</span></div>
+                <strong>متجاوب</strong><br>
+                يعمل على الهاتف
+            </div>
+            <div class="feature">
+                <div><span>🚀</span></div>
+                <strong>سريع</strong><br>
+                بدون خادم محلي
+            </div>
+        </div>
+
+        <button class="button" onclick="openApp()">
+            🚀 شغّل التطبيق الآن!
+        </button>
+
+        <div class="instructions">
+            <h3>📋 كيفية التشغيل:</h3>
+            <p>اضغط على الزر أعلاه أو انقر مرتين على <code>index.html</code></p>
+            <p>سيفتح التطبيق مباشرة في المتصفح</p>
+        </div>
+
+        <button class="button" onclick="openReadme()" style="background: rgba(255,255,255,0.2); color: white;">
+            📖 اقرأ التعليمات
+        </button>
+    </div>
+
+    <script>
+        function openApp() {
+            window.open('index.html', '_blank');
+        }
+
+        function openReadme() {
+            window.open('README.md', '_blank');
+        }
+
+        // إضافة حركة للشعار
+        document.addEventListener('DOMContentLoaded', function () {
+            const logo = document.querySelector('.logo');
+            logo.style.animation = 'pulse 2s infinite';
+
+            // إضافة تأثير على الأزرار
+            const buttons = document.querySelectorAll('.button');
+            buttons.forEach(button => {
+                button.addEventListener('mouseenter', function () {
+                    this.style.transform = 'scale(1.05)';
+                });
+                button.addEventListener('mouseleave', function () {
+                    this.style.transform = 'scale(1)';
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

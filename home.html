@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>الشاشة الرئيسية - الصالة الاقتصادية المتقدمة</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+    <script>
+        // إخفاء تحذير CDN للمشروع التجريبي
+        const originalWarn = console.warn;
+        console.warn = function (warning) {
+            if (!warning.includes('cdn.tailwindcss.com should not be used in production')) {
+                originalWarn.apply(console, arguments);
+            }
+        };
+    </script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#6B8E23", // Olive Green
+                        "background-light": "#F7F7F7",
+                        "background-dark": "#121212",
+                        "warm-red": "#E63946",
+                    },
+                    fontFamily: {
+                        display: ["Cairo", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "12px",
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .snap-mandatory {
+            -ms-scroll-snap-type: x mandatory;
+            scroll-snap-type: x mandatory;
+        }
+
+        .snap-start {
+            -ms-scroll-snap-align: start;
+            scroll-snap-align: start;
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-200">
+    <div class="max-w-sm mx-auto bg-background-light dark:bg-background-dark shadow-lg">
+        <div class="flex flex-col min-h-screen">
+            <main class="flex-grow pb-24">
+                <header class="p-4 bg-background-light dark:bg-background-dark sticky top-0 z-20">
+                    <div class="flex justify-between items-center">
+                        <h1 class="text-2xl font-black text-primary">الصالة الاقتصادية</h1>
+                        <div class="flex items-center space-x-4 space-x-reverse">
+                            <button onclick="window.location.href='settings.html'"
+                                class="text-slate-700 dark:text-slate-300 hover:text-primary transition-colors">
+                                <span class="material-icons-outlined text-3xl">settings</span>
+                            </button>
+                            <button onclick="window.location.href='tracking.html'"
+                                class="text-slate-700 dark:text-slate-300 hover:text-primary transition-colors">
+                                <span class="material-icons-outlined text-3xl">local_shipping</span>
+                            </button>
+                            <div class="relative cursor-pointer" onclick="window.location.href='cart.html'">
+                                <span
+                                    class="material-icons-outlined text-3xl text-slate-700 dark:text-slate-300">shopping_bag</span>
+                                <span
+                                    class="absolute -top-1 -right-1 bg-warm-red text-white text-xs w-5 h-5 flex items-center justify-center rounded-full font-bold">3</span>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+                <div class="px-4 pb-4">
+                    <div class="relative">
+                        <input onclick="window.location.href='search.html'"
+                            class="w-full bg-slate-200 dark:bg-slate-800 border-none rounded-lg py-3 pr-10 pl-4 text-slate-900 dark:text-slate-100 placeholder:text-slate-500 dark:placeholder:text-slate-400 focus:ring-2 focus:ring-primary cursor-pointer"
+                            placeholder="ابحث عن منتجات..." type="text" readonly />
+                        <span
+                            class="material-icons-outlined absolute top-1/2 right-3 -translate-y-1/2 text-slate-500 dark:text-slate-400">search</span>
+                    </div>
+                </div>
+                <section class="mb-6">
+                    <div class="overflow-x-auto snap-mandatory snap-x flex space-x-4 px-4 no-scrollbar">
+                        <div class="snap-start flex-shrink-0 w-[85%]">
+                            <div class="relative bg-warm-red rounded-lg h-40 flex items-center justify-center p-4 text-white shadow-lg overflow-hidden cursor-pointer"
+                                onclick="showOffer('vegetables')">
+                                <img alt="خضروات وفواكه" class="absolute inset-0 w-full h-full object-cover opacity-20"
+                                    src="https://images.unsplash.com/photo-1557844352-761f2565b576?w=400" />
+                                <div class="relative text-center">
+                                    <h2 class="text-xl font-bold">خصم 25%</h2>
+                                    <p class="font-light">على جميع الخضروات والفواكه الطازجة</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="snap-start flex-shrink-0 w-[85%]">
+                            <div class="relative bg-primary rounded-lg h-40 flex items-center justify-center p-4 text-white shadow-lg overflow-hidden cursor-pointer"
+                                onclick="showOffer('dairy')">
+                                <img alt="منتجات الألبان" class="absolute inset-0 w-full h-full object-cover opacity-20"
+                                    src="https://images.unsplash.com/photo-1550583724-b2692b85b150?w=400" />
+                                <div class="relative text-center">
+                                    <h2 class="text-xl font-bold">عروض الألبان</h2>
+                                    <p class="font-light">اشترِ 2 واحصل على 1 مجاناً</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="snap-start flex-shrink-0 w-[85%]">
+                            <div class="relative bg-blue-600 rounded-lg h-40 flex items-center justify-center p-4 text-white shadow-lg overflow-hidden cursor-pointer"
+                                onclick="showOffer('cleaning')">
+                                <img alt="منتجات التنظيف" class="absolute inset-0 w-full h-full object-cover opacity-20"
+                                    src="https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?w=400" />
+                                <div class="relative text-center">
+                                    <h2 class="text-xl font-bold">توفير كبير</h2>
+                                    <p class="font-light">على منتجات التنظيف</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="mb-6 px-4">
+                    <h3 class="text-lg font-bold mb-3 text-slate-800 dark:text-slate-200">الأقسام</h3>
+                    <div class="grid grid-cols-4 gap-4 text-center">
+                        <div onclick="showCategory('vegetables')"
+                            class="flex flex-col items-center cursor-pointer hover:scale-105 transition-transform">
+                            <div
+                                class="bg-primary/10 dark:bg-primary/20 rounded-lg w-16 h-16 flex items-center justify-center mb-2">
+                                <span class="material-icons-outlined text-primary text-3xl">local_florist</span>
+                            </div>
+                            <span class="text-xs text-slate-600 dark:text-slate-400">خضروات</span>
+                        </div>
+                        <div onclick="showCategory('dairy')"
+                            class="flex flex-col items-center cursor-pointer hover:scale-105 transition-transform">
+                            <div
+                                class="bg-primary/10 dark:bg-primary/20 rounded-lg w-16 h-16 flex items-center justify-center mb-2">
+                                <span class="material-icons-outlined text-primary text-3xl">egg</span>
+                            </div>
+                            <span class="text-xs text-slate-600 dark:text-slate-400">ألبان</span>
+                        </div>
+                        <div onclick="showCategory('bakery')"
+                            class="flex flex-col items-center cursor-pointer hover:scale-105 transition-transform">
+                            <div
+                                class="bg-primary/10 dark:bg-primary/20 rounded-lg w-16 h-16 flex items-center justify-center mb-2">
+                                <span class="material-icons-outlined text-primary text-3xl">bakery_dining</span>
+                            </div>
+                            <span class="text-xs text-slate-600 dark:text-slate-400">مخبوزات</span>
+                        </div>
+                        <div onclick="showCategory('meat')"
+                            class="flex flex-col items-center cursor-pointer hover:scale-105 transition-transform">
+                            <div
+                                class="bg-primary/10 dark:bg-primary/20 rounded-lg w-16 h-16 flex items-center justify-center mb-2">
+                                <span class="material-icons-outlined text-primary text-3xl">kebab_dining</span>
+                            </div>
+                            <span class="text-xs text-slate-600 dark:text-slate-400">لحوم</span>
+                        </div>
+                    </div>
+                </section>
+                <section class="mb-6">
+                    <h3 class="text-lg font-bold mb-3 px-4 text-slate-800 dark:text-slate-200">الأكثر مبيعاً</h3>
+                    <div class="overflow-x-auto snap-mandatory snap-x flex space-x-4 px-4 no-scrollbar">
+                        <div class="snap-start flex-shrink-0 w-40 bg-white dark:bg-slate-800 rounded-lg shadow-sm p-3">
+                            <img alt="Fresh tomatoes" class="w-full h-24 object-cover rounded mb-2"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCn8MMe60qzLKK5qnXegNwf7Cexq1KS6-rQMV2R92uOqlfut-iq5aMYHt1gp38MI8V3qFkyjQiS8a7-Gr4qjlvL6vd2QOTbCstaBb3j6K6wH7sPhnWowQCt7bQpGP5vUNBUmEAbO0gkFFuoA7fKLNsN3Zuc1_vy5_ZGZQMnn2fjBC1bTCF540r_VMSN9GUWMZaRra1tT3wXtQoVTZZmvuyH8FxoH_-nPsh8AfroHNxg3i8IJRL380a1Kab5oRWwSbmDqUytXWMz_58" />
+                            <h4 class="font-bold text-sm truncate">طماطم طازجة</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mb-2">1 كيلو</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-primary">5.95 ر.س</span>
+                                <button
+                                    class="bg-primary text-white w-8 h-8 rounded-full flex items-center justify-center"><span
+                                        class="material-icons-outlined text-lg">add_shopping_cart</span></button>
+                            </div>
+                        </div>
+                        <div class="snap-start flex-shrink-0 w-40 bg-white dark:bg-slate-800 rounded-lg shadow-sm p-3">
+                            <img alt="Fresh milk" class="w-full h-24 object-cover rounded mb-2"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAq6mY82HRcawScYbLyEblQSONaO0oPgdzZ1g0WgFUnFqVvidgV3wUDFU-hSB86e5cz3sZxPcV9xvAEGRmmsQUh1rFQHwBlv8ZWaBhodfQdi0M6wGF8xchgjGe9M6VLJ_D3FqtnlBfTGyRVKQyCn9914WAt3bl-0fTNuOzVhBfpJM3iZ7ZkyCIVCEBkHgY495g5Zw0eACfmPqt_v6pcxjp85pPcr0ZGr0hNzMjRJjSaERoiJbv2o5faW6V8eE9hnkshGKQNEdeySEw" />
+                            <h4 class="font-bold text-sm truncate">حليب طازج</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mb-2">1 لتر</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-primary">6.50 ر.س</span>
+                                <button
+                                    class="bg-primary text-white w-8 h-8 rounded-full flex items-center justify-center"><span
+                                        class="material-icons-outlined text-lg">add_shopping_cart</span></button>
+                            </div>
+                        </div>
+                        <div class="snap-start flex-shrink-0 w-40 bg-white dark:bg-slate-800 rounded-lg shadow-sm p-3">
+                            <img alt="Brown eggs" class="w-full h-24 object-cover rounded mb-2"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQszVV7YprP0ewz6RVXuJvq0RaBg2gvqcP5C0e2WEC7ze_e2XDIfECSYVXob23YwGx_ZSrKw0Tj8W-Fi3UEA4ySurqQpw2eSPes9QX8clHG1ODscxODFLSkuC1Vhgy1U1qwq5tord5P6IECP4-ev1qYuoYukVWSySzi-MzsCft-rRFy8yhIAhhfZphGwMZ1a_oR0XDl4RP9_YWvDoqr2mB2hn05D7ux5Y4__YgXzoyQvH9VQNY37lA72vcRZCXDujHDD7p9H_RG8M" />
+                            <h4 class="font-bold text-sm truncate">بيض بلدي</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mb-2">12 حبة</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-primary">10.00 ر.س</span>
+                                <button
+                                    class="bg-primary text-white w-8 h-8 rounded-full flex items-center justify-center"><span
+                                        class="material-icons-outlined text-lg">add_shopping_cart</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="px-4">
+                    <h3 class="text-lg font-bold mb-3 text-slate-800 dark:text-slate-200">مقترح لك</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-white dark:bg-slate-800 rounded-lg shadow-sm p-3">
+                            <img alt="Fresh salad bowl" class="w-full h-24 object-cover rounded mb-2"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuByVdFksGm0McMPLCV3vJfH4nYcEkosHZixhQRJvAWS2PiAHaMeXWkgKdDpjtppIFuWtEg8OCGsHTUNLtOOK1JwjJLvITdCsXgFuRFq1ckNVpm5ioYGCv3eOTqv4LTOEs01dz9uqiPX75JARo4XK8VQZMAziVgE32HkKE0HajxbqU1Dvl5Jm5y1FR8iCJO1VehY_FTq-p_KlDoEoRu-rfpjuSKh5PryuzQRkCwKA69YasmaTGSIyY0nzaf4KesdKsl6kNprCHiaWiE" />
+                            <h4 class="font-bold text-sm truncate">سلطة خضراء</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mb-2">جاهزة للأكل</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-primary">12.00 ر.س</span>
+                                <button
+                                    class="bg-primary text-white w-8 h-8 rounded-full flex items-center justify-center"><span
+                                        class="material-icons-outlined text-lg">add</span></button>
+                            </div>
+                        </div>
+                        <div class="bg-white dark:bg-slate-800 rounded-lg shadow-sm p-3">
+                            <img alt="Bottled olive oil" class="w-full h-24 object-cover rounded mb-2"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCo3vdq1tJE2avjc8opT4vhADjoquiB3_WEKy524wbVJ0_P-MK1XWBjoynC9jjMjmC8eLJpUSLhZbG4XVEqe4W6zhqFezlY_OQb6WpJaw_3pB6egbAXLC0f5hZ8XYCGFm2KP_noxbvcGiwD0pjDvk2A2MmkJTO8vDciYaU3UO3eWXD99OAW5p-sb7AQjvPjRr8QZ29W531qZ1JJxVNdbjSSqREYze6YmI2q-PzewC-XHjkgubm3WVdjQviT9Q2zKP3mVE4HIGuHSrQ" />
+                            <h4 class="font-bold text-sm truncate">زيت زيتون بكر</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mb-2">500 مل</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-primary">25.50 ر.س</span>
+                                <button
+                                    class="bg-primary text-white w-8 h-8 rounded-full flex items-center justify-center"><span
+                                        class="material-icons-outlined text-lg">add</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+
+        <!-- شريط التنقل السفلي -->
+        <nav class="fixed bottom-0 left-0 right-0 max-w-sm mx-auto bg-white border-t border-gray-200 shadow-lg">
+            <div class="flex justify-around h-16">
+                <button onclick="window.location.href='home.html'"
+                    class="flex flex-col items-center justify-center flex-grow text-primary bg-green-50">
+                    <span class="material-icons-outlined text-2xl">home</span>
+                    <span class="text-xs font-bold mt-1">الرئيسية</span>
+                </button>
+                <button onclick="window.location.href='categories.html'"
+                    class="flex flex-col items-center justify-center flex-grow text-gray-500 hover:text-primary">
+                    <span class="material-icons-outlined text-2xl">grid_view</span>
+                    <span class="text-xs mt-1">الأقسام</span>
+                </button>
+                <button onclick="window.location.href='orders.html'"
+                    class="flex flex-col items-center justify-center flex-grow text-primary bg-green-50">
+                    <span class="material-icons-outlined text-2xl">receipt_long</span>
+                    <span class="text-xs font-bold mt-1">طلباتي</span>
+                </button>
+                <button onclick="window.location.href='cart.html'"
+                    class="flex flex-col items-center justify-center flex-grow text-gray-500 hover:text-primary relative">
+                    <span class="material-icons-outlined text-2xl">shopping_bag</span>
+                    <span class="text-xs mt-1">السلة</span>
+                    <span
+                        class="absolute -top-1 -right-1 bg-warm-red text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-bold">3</span>
+                </button>
+                <button onclick="window.location.href='profile.html'"
+                    class="flex flex-col items-center justify-center flex-grow text-gray-500 hover:text-primary">
+                    <span class="material-icons-outlined text-2xl">person_outline</span>
+                    <span class="text-xs mt-1">حسابي</span>
+                </button>
+            </div>
+        </nav>
+    </div>
+
+    <script>
+        let cartCount = 3;
+
+        function addToCart(event, productName) {
+            event.stopPropagation();
+            cartCount++;
+            updateCartBadge();
+            showNotification(`تم إضافة ${productName} إلى السلة`);
+        }
+
+        function updateCartBadge() {
+            const badges = document.querySelectorAll('.bottom-nav .flex .relative span:last-child');
+            badges.forEach(badge => {
+                badge.textContent = cartCount;
+            });
+        }
+
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.className = 'fixed top-4 right-4 bg-primary text-white px-4 py-2 rounded-lg shadow-lg z-50';
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            setTimeout(() => notification.remove(), 3000);
+        }
+
+        function showOffer(type) {
+            alert(`عرض خاص على ${type}`);
+        }
+
+        function showCategory(type) {
+            window.location.href = 'categories.html';
+        }
+
+        function showProduct(product) {
+            window.location.href = 'product.html';
+        }
+    </script>
+
+</body>
+
+</html>

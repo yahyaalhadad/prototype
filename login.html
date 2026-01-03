@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>التسجيل والدخول - الصالة الاقتصادية المتقدمة</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&amp;display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#E53935", // Warm Red
+            "background-light": "#FFFFFF",
+            "background-dark": "#121212",
+            "olive-green": "#556B2F",
+            "brand-green": "#0A6E3A", // New brand green for buttons
+          },
+          fontFamily: {
+            display: ["Cairo", "sans-serif"],
+          },
+          borderRadius: {
+            DEFAULT: "0.75rem", // 12px
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    .material-icons-outlined {
+      direction: ltr;
+    }
+  </style>
+  <style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display">
+  <div class="flex flex-col h-screen p-6">
+    <main class="flex flex-col justify-center flex-grow text-center">
+      <div class="mb-12">
+        <div class="w-24 h-24 mx-auto bg-olive-green rounded-full flex items-center justify-center mb-4">
+          <span class="material-icons-outlined text-white text-5xl">shopping_cart</span>
+        </div>
+        <h1 class="text-3xl font-bold text-olive-green dark:text-gray-200">الصالة الاقتصادية المتقدمة</h1>
+      </div>
+      <div class="space-y-6 text-right">
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2" for="email-phone">البريد
+            الإلكتروني أو رقم الهاتف</label>
+          <div class="relative">
+            <span class="material-icons-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+              person_outline
+            </span>
+            <input
+              class="w-full pl-10 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-primary focus:border-primary placeholder:text-gray-400 dark:placeholder:text-gray-500"
+              id="email-phone" name="email-phone" placeholder="ادخل بريدك الإلكتروني أو رقم هاتفك" type="text" />
+          </div>
+        </div>
+        <button onclick="window.location.href='home.html'"
+          class="w-full bg-brand-green text-white font-bold py-4 px-4 rounded-lg shadow-md hover:bg-green-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-green dark:focus:ring-offset-background-dark transition-colors duration-200">
+          متابعة
+        </button>
+      </div>
+    </main>
+    <footer class="text-center pb-4">
+      <div class="flex flex-col items-center space-y-3">
+        <p class="text-sm text-gray-600 dark:text-gray-400">
+          ليس لديك حساب؟
+          <a onclick="showRegisterModal()" class="font-bold text-primary hover:underline cursor-pointer" href="#">سجل
+            الآن</a>
+        </p>
+        <a onclick="showForgotModal()" class="text-sm text-gray-600 dark:text-gray-400 hover:underline cursor-pointer"
+          href="#">نسيت كلمة المرور؟</a>
+      </div>
+    </footer>
+  </div>
+
+  <!-- نافذة التسجيل -->
+  <div id="register-modal"
+    class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 hidden z-50">
+    <div class="bg-white rounded-lg p-6 w-full max-w-md">
+      <h3 class="text-xl font-bold mb-4 text-center">إنشاء حساب جديد</h3>
+      <div class="space-y-4">
+        <input placeholder="الاسم الكامل" class="w-full p-3 border border-gray-300 rounded-lg" type="text">
+        <input placeholder="البريد الإلكتروني" class="w-full p-3 border border-gray-300 rounded-lg" type="email">
+        <input placeholder="رقم الهاتف" class="w-full p-3 border border-gray-300 rounded-lg" type="tel">
+        <input placeholder="كلمة المرور" class="w-full p-3 border border-gray-300 rounded-lg" type="password">
+        <button onclick="closeModal()" class="w-full bg-brand-green text-white font-bold py-3 px-4 rounded-lg">
+          إنشاء الحساب
+        </button>
+        <button onclick="closeModal()" class="w-full bg-gray-200 text-gray-800 font-bold py-3 px-4 rounded-lg mt-2">
+          إلغاء
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- نافذة نسيت كلمة المرور -->
+  <div id="forgot-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 hidden z-50">
+    <div class="bg-white rounded-lg p-6 w-full max-w-md">
+      <h3 class="text-xl font-bold mb-4 text-center">استعادة كلمة المرور</h3>
+      <div class="space-y-4">
+        <input placeholder="البريد الإلكتروني أو رقم الهاتف" class="w-full p-3 border border-gray-300 rounded-lg"
+          type="text">
+        <button onclick="closeModal()" class="w-full bg-brand-green text-white font-bold py-3 px-4 rounded-lg">
+          إرسال رمز الاستعادة
+        </button>
+        <button onclick="closeModal()" class="w-full bg-gray-200 text-gray-800 font-bold py-3 px-4 rounded-lg mt-2">
+          إلغاء
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function showRegisterModal() {
+      document.getElementById('register-modal').classList.remove('hidden');
+    }
+
+    function showForgotModal() {
+      document.getElementById('forgot-modal').classList.remove('hidden');
+    }
+
+    function closeModal() {
+      document.getElementById('register-modal').classList.add('hidden');
+      document.getElementById('forgot-modal').classList.add('hidden');
+    }
+  </script>
+
+</body>
+
+</html>

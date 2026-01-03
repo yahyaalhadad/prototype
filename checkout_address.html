@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>إتمام الطلب - العنوان - الصالة الاقتصادية المتقدمة</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#4d7c0f", // Original Olive Green for other elements
+                        "brand-green": "#0A6E3A", // New specific Olive Green for the button
+                        accent: "#dc2626", // Warm Red
+                        "background-light": "#f8fafc",
+                        "background-dark": "#18181b",
+                        "card-light": "#ffffff",
+                        "card-dark": "#27272a",
+                        "text-light": "#18181b",
+                        "text-dark": "#e4e4e7",
+                        "subtle-light": "#64748b",
+                        "subtle-dark": "#94a3b8",
+                        "border-light": "#e2e8f0",
+                        "border-dark": "#3f3f46",
+                    },
+                    fontFamily: {
+                        display: ["Tajawal", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "1rem",
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display">
+    <div class="container mx-auto max-w-md">
+        <div class="flex flex-col h-screen">
+            <header
+                class="p-4 flex items-center justify-between bg-card-light dark:bg-card-dark border-b border-border-light dark:border-border-dark">
+                <button onclick="window.location.href='cart.html'" class="text-text-light dark:text-text-dark">
+                    <span class="material-symbols-outlined">arrow_forward_ios</span>
+                </button>
+                <h1 class="text-xl font-bold text-text-light dark:text-text-dark">إتمام الطلب</h1>
+                <div class="w-8"></div>
+            </header>
+            <main class="flex-grow p-4 overflow-y-auto">
+                <div class="mb-6">
+                    <div class="flex space-x-4 space-x-reverse mb-4">
+                        <button
+                            class="flex-1 py-2 px-4 rounded-lg font-medium bg-brand-green text-white">العنوان</button>
+                        <button onclick="window.location.href='checkout_payment.html'"
+                            class="flex-1 py-2 px-4 rounded-lg font-medium bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300">الدفع</button>
+                    </div>
+                    <div
+                        class="bg-card-light dark:bg-card-dark rounded-xl p-6 shadow-sm border border-border-light dark:border-border-dark">
+                        <h2 class="text-lg font-bold mb-4 flex items-center text-text-light dark:text-text-dark">
+                            <span class="material-symbols-outlined ml-2 text-brand-green">location_on</span>
+                            عنوان التوصيل
+                        </h2>
+                        <div class="space-y-4">
+                            <div>
+                                <label
+                                    class="block text-sm font-medium mb-2 text-subtle-light dark:text-subtle-dark">الاسم
+                                    الكامل</label>
+                                <input
+                                    class="w-full p-3 border border-border-light dark:border-border-dark rounded-lg bg-card-light dark:bg-card-dark text-text-light dark:text-text-dark focus:ring-2 focus:ring-brand-green focus:border-transparent"
+                                    placeholder="أدخل اسمك الكامل" type="text" />
+                            </div>
+                            <div>
+                                <label
+                                    class="block text-sm font-medium mb-2 text-subtle-light dark:text-subtle-dark">رقم
+                                    الهاتف</label>
+                                <input
+                                    class="w-full p-3 border border-border-light dark:border-border-dark rounded-lg bg-card-light dark:bg-card-dark text-text-light dark:text-text-dark focus:ring-2 focus:ring-brand-green focus:border-transparent"
+                                    placeholder="05xxxxxxxx" type="tel" />
+                            </div>
+                            <div>
+                                <label
+                                    class="block text-sm font-medium mb-2 text-subtle-light dark:text-subtle-dark">المدينة</label>
+                                <select
+                                    class="w-full p-3 border border-border-light dark:border-border-dark rounded-lg bg-card-light dark:bg-card-dark text-text-light dark:text-text-dark focus:ring-2 focus:ring-brand-green focus:border-transparent">
+                                    <option>الرياض</option>
+                                    <option>جدة</option>
+                                    <option>الدمام</option>
+                                    <option>مكة المكرمة</option>
+                                    <option>المدينة المنورة</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label
+                                    class="block text-sm font-medium mb-2 text-subtle-light dark:text-subtle-dark">الحي</label>
+                                <input
+                                    class="w-full p-3 border border-border-light dark:border-border-dark rounded-lg bg-card-light dark:bg-card-dark text-text-light dark:text-text-dark focus:ring-2 focus:ring-brand-green focus:border-transparent"
+                                    placeholder="اسم الحي" type="text" />
+                            </div>
+                            <div>
+                                <label
+                                    class="block text-sm font-medium mb-2 text-subtle-light dark:text-subtle-dark">العنوان
+                                    التفصيلي</label>
+                                <textarea
+                                    class="w-full p-3 border border-border-light dark:border-border-dark rounded-lg bg-card-light dark:bg-card-dark text-text-light dark:text-text-dark focus:ring-2 focus:ring-brand-green focus:border-transparent h-24 resize-none"
+                                    placeholder="وصف دقيق للموقع"></textarea>
+                            </div>
+                            <div>
+                                <label
+                                    class="block text-sm font-medium mb-2 text-subtle-light dark:text-subtle-dark">ملاحظات
+                                    إضافية (اختياري)</label>
+                                <textarea
+                                    class="w-full p-3 border border-border-light dark:border-border-dark rounded-lg bg-card-light dark:bg-card-dark text-text-light dark:text-text-dark focus:ring-2 focus:ring-brand-green focus:border-transparent h-20 resize-none"
+                                    placeholder="أي تعليمات خاصة للسائق"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="bg-card-light dark:bg-card-dark rounded-xl p-4 shadow-sm border border-border-light dark:border-border-dark mb-6">
+                    <h3 class="font-bold text-lg mb-3 text-text-light dark:text-text-dark">ملخص الطلب</h3>
+                    <div class="space-y-2 text-sm">
+                        <div class="flex justify-between text-subtle-light dark:text-subtle-dark">
+                            <span>أرز بسمتي فاخر (1)</span>
+                            <span>32.50 ر.س</span>
+                        </div>
+                        <div class="flex justify-between text-subtle-light dark:text-subtle-dark">
+                            <span>موز طازج (2 كيلو)</span>
+                            <span>9.90 ر.س</span>
+                        </div>
+                        <div class="flex justify-between text-subtle-light dark:text-subtle-dark">
+                            <span>حليب طازج (1 لتر)</span>
+                            <span>6.50 ر.س</span>
+                        </div>
+                        <div class="flex justify-between text-subtle-light dark:text-subtle-dark">
+                            <span>رسوم التوصيل</span>
+                            <span>5.00 ر.س</span>
+                        </div>
+                        <hr class="my-2" />
+                        <div class="flex justify-between font-bold text-lg text-text-light dark:text-text-dark">
+                            <span>الإجمالي</span>
+                            <span class="text-brand-green">53.90 ر.س</span>
+                        </div>
+                    </div>
+                </div>
+                <button onclick="window.location.href='checkout_payment.html'"
+                    class="w-full bg-brand-green text-white font-bold py-4 px-4 rounded-lg shadow-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-green transition-colors">
+                    متابعة للدفع
+                </button>
+            </main>
+        </div>
+    </div>
+</body>
+
+</html>

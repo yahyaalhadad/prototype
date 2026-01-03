@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+
+<html class="light" dir="rtl" lang="ar">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>قائمة المفضلة - الصالة الاقتصادية</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&amp;family=Noto+Sans+Arabic:wght@400;500;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Material Symbols -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Theme Configuration -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0a703c", // Olive Green
+                        "primary-light": "#e7f1ec",
+                        "accent": "#d64045", // Warm Red
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#102219",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "Noto Sans Arabic", "sans-serif"],
+                        "body": ["Plus Jakarta Sans", "Noto Sans Arabic", "sans-serif"],
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', 'Noto Sans Arabic', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* Hide scrollbar for clean horizontal scroll */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Custom safe area for iOS */
+        .safe-pb {
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark text-[#111814] dark:text-white transition-colors duration-200">
+    <div
+        class="relative flex h-full min-h-screen w-full flex-col overflow-x-hidden max-w-md mx-auto bg-background-light dark:bg-background-dark shadow-2xl">
+        <!-- Header -->
+        <header
+            class="sticky top-0 z-50 flex items-center justify-between bg-white/90 dark:bg-[#152e22]/90 backdrop-blur-md px-4 py-3 border-b border-gray-100 dark:border-white/5">
+            <div class="flex items-center gap-3">
+                <!-- Back Button (RTL aware: points right in RTL context for 'back' typically, but arrow_forward points left in LTR. In RTL arrow_forward points left. We want an arrow pointing right for back in RTL) -->
+                <!-- Using arrow_forward in RTL mode usually points left (visual flip). Let's use specific icon direction or transform -->
+                <button onclick="window.location.href='home.html'"
+                    class="flex h-10 w-10 items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">
+                    <span class="material-symbols-outlined transform rotate-180 text-[#111814] dark:text-white"
+                        style="font-size: 24px;">arrow_forward</span>
+                </button>
+                <h1 class="text-xl font-bold tracking-tight text-[#111814] dark:text-white">المفضلة</h1>
+            </div>
+            <button onclick="window.location.href='cart.html'"
+                class="relative flex h-10 w-10 items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">
+                <span class="material-symbols-outlined text-[#111814] dark:text-white"
+                    style="font-size: 24px;">shopping_cart</span>
+                <span
+                    class="absolute top-1 left-1 flex h-4 w-4 items-center justify-center rounded-full bg-accent text-[10px] font-bold text-white ring-2 ring-white dark:ring-[#152e22]">3</span>
+            </button>
+        </header>
+        <!-- Main Content -->
+        <main class="flex-1 pb-24">
+            <!-- Bulk Action Bar -->
+            <div class="flex items-center justify-between px-4 py-4">
+                <p class="text-sm font-medium text-gray-500 dark:text-gray-400">٨ منتجات محفوظة</p>
+                <button onclick="addAllToCart()"
+                    class="group flex items-center gap-2 rounded-lg bg-primary/10 px-4 py-2 text-sm font-bold text-primary transition-all active:scale-95 hover:bg-primary hover:text-white dark:bg-primary/20 dark:text-primary-light dark:hover:bg-primary dark:hover:text-white">
+                    <span class="material-symbols-outlined text-[20px]">add_shopping_cart</span>
+                    <span>إضافة الكل للسلة</span>
+                </button>
+            </div>
+            <!-- Product Grid -->
+            <div class="grid grid-cols-2 gap-3 px-4 sm:grid-cols-2">
+                <!-- Card 1 -->
+                <div
+                    class="group relative flex flex-col overflow-hidden rounded-xl bg-white dark:bg-[#1a3528] shadow-soft border border-gray-100 dark:border-white/5 transition-all hover:shadow-md">
+                    <div class="relative aspect-square w-full overflow-hidden bg-gray-50">
+                        <div class="absolute right-2 top-2 z-10">
+                            <button
+                                class="flex h-8 w-8 items-center justify-center rounded-full bg-white/80 dark:bg-black/40 backdrop-blur-sm transition-transform active:scale-90 shadow-sm">
+                                <span class="material-symbols-outlined text-accent"
+                                    style="font-variation-settings: 'FILL' 1; font-size: 20px;">favorite</span>
+                            </button>
+                        </div>
+                        <div class="h-full w-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                            data-alt="Bag of high quality basmati rice"
+                            style="background-image: url('https://images.unsplash.com/photo-1586201375761-83865001e31c?w=400');">
+                        </div>
+                        <!-- Sale Badge -->
+                        <div
+                            class="absolute bottom-2 right-2 rounded-md bg-accent px-2 py-1 text-[10px] font-bold text-white shadow-sm">
+                            خصم ١٥٪
+                        </div>
+                    </div>
+                    <div class="flex flex-1 flex-col p-3">
+                        <h3 class="mb-1 text-sm font-bold text-[#111814] dark:text-white line-clamp-2 min-h-[2.5rem]">
+                            أرز بسمتي هندي ممتاز 5 كجم</h3>
+                        <div class="mt-auto flex items-end justify-between gap-2">
+                            <div class="flex flex-col">
+                                <span class="text-xs text-gray-400 line-through">٤٢.٠٠ ر.س</span>
+                                <span class="text-base font-extrabold text-primary dark:text-[#4ade80]">٣٥.٠٠ <span
+                                        class="text-xs font-normal">ر.س</span></span>
+                            </div>
+                            <button onclick="addToCart('rice')"
+                                class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary text-white shadow-md transition-colors hover:bg-[#085a30] active:scale-95">
+                                <span class="material-symbols-outlined" style="font-size: 20px;">add</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div
+                    class="group relative flex flex-col overflow-hidden rounded-xl bg-white dark:bg-[#1a3528] shadow-soft border border-gray-100 dark:border-white/5 transition-all hover:shadow-md">
+                    <div class="relative aspect-square w-full overflow-hidden bg-gray-50">
+                        <div class="absolute right-2 top-2 z-10">
+                            <button
+                                class="flex h-8 w-8 items-center justify-center rounded-full bg-white/80 dark:bg-black/40 backdrop-blur-sm transition-transform active:scale-90 shadow-sm">
+                                <span class="material-symbols-outlined text-accent"
+                                    style="font-variation-settings: 'FILL' 1; font-size: 20px;">favorite</span>
+                            </button>
+                        </div>
+                        <div class="h-full w-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                            data-alt="Bottle of vegetable cooking oil"
+                            style="background-image: url('https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=400');">
+                        </div>
+                    </div>
+                    <div class="flex flex-1 flex-col p-3">
+                        <h3 class="mb-1 text-sm font-bold text-[#111814] dark:text-white line-clamp-2 min-h-[2.5rem]">
+                            زيت نباتي نقي للقلي 1.5 لتر</h3>
+                        <div class="mt-auto flex items-end justify-between gap-2">
+                            <div class="flex flex-col">
+                                <span class="text-base font-extrabold text-primary dark:text-[#4ade80]">٢٢.٥٠ <span
+                                        class="text-xs font-normal">ر.س</span></span>
+                            </div>
+                            <button onclick="addToCart('oil')"
+                                class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary text-white shadow-md transition-colors hover:bg-[#085a30] active:scale-95">
+                                <span class="material-symbols-outlined" style="font-size: 20px;">add</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div
+                    class="group relative flex flex-col overflow-hidden rounded-xl bg-white dark:bg-[#1a3528] shadow-soft border border-gray-100 dark:border-white/5 transition-all hover:shadow-md">
+                    <div class="relative aspect-square w-full overflow-hidden bg-gray-50">
+                        <div class="absolute right-2 top-2 z-10">
+                            <button
+                                class="flex h-8 w-8 items-center justify-center rounded-full bg-white/80 dark:bg-black/40 backdrop-blur-sm transition-transform active:scale-90 shadow-sm">
+                                <span class="material-symbols-outlined text-accent"
+                                    style="font-variation-settings: 'FILL' 1; font-size: 20px;">favorite</span>
+                            </button>
+                        </div>
+                        <div class="h-full w-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                            data-alt="Fresh raw chicken whole"
+                            style="background-image: url('https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?w=400');">
+                        </div>
+                    </div>
+                    <div class="flex flex-1 flex-col p-3">
+                        <h3 class="mb-1 text-sm font-bold text-[#111814] dark:text-white line-clamp-2 min-h-[2.5rem]">
+                            دجاج طازج كامل 1000جم</h3>
+                        <div class="mt-auto flex items-end justify-between gap-2">
+                            <div class="flex flex-col">
+                                <span class="text-base font-extrabold text-primary dark:text-[#4ade80]">١٨.٠٠ <span
+                                        class="text-xs font-normal">ر.س</span></span>
+                            </div>
+                            <button onclick="addToCart('chicken')"
+                                class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary text-white shadow-md transition-colors hover:bg-[#085a30] active:scale-95">
+                                <span class="material-symbols-outlined" style="font-size: 20px;">add</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 4 -->
+                <div
+                    class="group relative flex flex-col overflow-hidden rounded-xl bg-white dark:bg-[#1a3528] shadow-soft border border-gray-100 dark:border-white/5 transition-all hover:shadow-md">
+                    <div class="relative aspect-square w-full overflow-hidden bg-gray-50">
+                        <div class="absolute right-2 top-2 z-10">
+                            <button
+                                class="flex h-8 w-8 items-center justify-center rounded-full bg-white/80 dark:bg-black/40 backdrop-blur-sm transition-transform active:scale-90 shadow-sm">
+                                <span class="material-symbols-outlined text-accent"
+                                    style="font-variation-settings: 'FILL' 1; font-size: 20px;">favorite</span>
+                            </button>
+                        </div>
+                        <div class="h-full w-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                            data-alt="Pack of white sugar"
+                            style="background-image: url('https://images.unsplash.com/photo-1581441363689-1f3c3c414635?w=400');">
+                        </div>
+                    </div>
+                    <div class="flex flex-1 flex-col p-3">
+                        <h3 class="mb-1 text-sm font-bold text-[#111814] dark:text-white line-clamp-2 min-h-[2.5rem]">
+                            سكر ناعم الأسرة 2 كجم</h3>
+                        <div class="mt-auto flex items-end justify-between gap-2">
+                            <div class="flex flex-col">
+                                <span class="text-base font-extrabold text-primary dark:text-[#4ade80]">١٢.٧٥ <span
+                                        class="text-xs font-normal">ر.س</span></span>
+                            </div>
+                            <button onclick="addToCart('sugar')"
+                                class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary text-white shadow-md transition-colors hover:bg-[#085a30] active:scale-95">
+                                <span class="material-symbols-outlined" style="font-size: 20px;">add</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 5 -->
+                <div
+                    class="group relative flex flex-col overflow-hidden rounded-xl bg-white dark:bg-[#1a3528] shadow-soft border border-gray-100 dark:border-white/5 transition-all hover:shadow-md">
+                    <div class="relative aspect-square w-full overflow-hidden bg-gray-50">
+                        <div class="absolute right-2 top-2 z-10">
+                            <button
+                                class="flex h-8 w-8 items-center justify-center rounded-full bg-white/80 dark:bg-black/40 backdrop-blur-sm transition-transform active:scale-90 shadow-sm">
+                                <span class="material-symbols-outlined text-accent"
+                                    style="font-variation-settings: 'FILL' 1; font-size: 20px;">favorite</span>
+                            </button>
+                        </div>
+                        <div class="h-full w-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                            data-alt="Box of tea bags"
+                            style="background-image: url('https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=400');">
+                        </div>
+                    </div>
+                    <div class="flex flex-1 flex-col p-3">
+                        <h3 class="mb-1 text-sm font-bold text-[#111814] dark:text-white line-clamp-2 min-h-[2.5rem]">
+                            شاي أسود ليبتون 100 كيس</h3>
+                        <div class="mt-auto flex items-end justify-between gap-2">
+                            <div class="flex flex-col">
+                                <span class="text-base font-extrabold text-primary dark:text-[#4ade80]">١٥.٠٠ <span
+                                        class="text-xs font-normal">ر.س</span></span>
+                            </div>
+                            <button onclick="addToCart('tea')"
+                                class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary text-white shadow-md transition-colors hover:bg-[#085a30] active:scale-95">
+                                <span class="material-symbols-outlined" style="font-size: 20px;">add</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 6 -->
+                <div
+                    class="group relative flex flex-col overflow-hidden rounded-xl bg-white dark:bg-[#1a3528] shadow-soft border border-gray-100 dark:border-white/5 transition-all hover:shadow-md">
+                    <div class="relative aspect-square w-full overflow-hidden bg-gray-50">
+                        <div class="absolute right-2 top-2 z-10">
+                            <button
+                                class="flex h-8 w-8 items-center justify-center rounded-full bg-white/80 dark:bg-black/40 backdrop-blur-sm transition-transform active:scale-90 shadow-sm">
+                                <span class="material-symbols-outlined text-accent"
+                                    style="font-variation-settings: 'FILL' 1; font-size: 20px;">favorite</span>
+                            </button>
+                        </div>
+                        <div class="h-full w-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                            data-alt="Carton of milk"
+                            style="background-image: url('https://images.unsplash.com/photo-1550583724-b2692b85b150?w=400');">
+                        </div>
+                        <div
+                            class="absolute bottom-2 right-2 rounded-md bg-accent px-2 py-1 text-[10px] font-bold text-white shadow-sm">
+                            عرض خاص
+                        </div>
+                    </div>
+                    <div class="flex flex-1 flex-col p-3">
+                        <h3 class="mb-1 text-sm font-bold text-[#111814] dark:text-white line-clamp-2 min-h-[2.5rem]">
+                            حليب المراعي كامل الدسم 1 لتر</h3>
+                        <div class="mt-auto flex items-end justify-between gap-2">
+                            <div class="flex flex-col">
+                                <span class="text-xs text-gray-400 line-through">٧.٠٠ ر.س</span>
+                                <span class="text-base font-extrabold text-primary dark:text-[#4ade80]">٥.٥٠ <span
+                                        class="text-xs font-normal">ر.س</span></span>
+                            </div>
+                            <button onclick="addToCart('milk')"
+                                class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary text-white shadow-md transition-colors hover:bg-[#085a30] active:scale-95">
+                                <span class="material-symbols-outlined" style="font-size: 20px;">add</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Empty State (Hidden, but structured for developer to use)
+            <div class="hidden flex-col items-center justify-center py-20 px-6 text-center">
+                <div class="mb-6 flex h-32 w-32 items-center justify-center rounded-full bg-gray-50 dark:bg-white/5">
+                     <span class="material-symbols-outlined text-gray-300 dark:text-gray-600" style="font-size: 64px;">favorite_border</span>
+                </div>
+                <h2 class="mb-2 text-xl font-bold text-[#111814] dark:text-white">قائمتك فارغة حالياً</h2>
+                <p class="mb-8 text-sm text-gray-500 dark:text-gray-400 max-w-xs mx-auto">احفظ المنتجات التي تحبها هنا لشرائها لاحقاً بسهولة.</p>
+                <button class="flex w-full max-w-[200px] items-center justify-center rounded-lg bg-primary py-3 text-sm font-bold text-white shadow-lg transition-transform active:scale-95">
+                    اكتشف منتجات جديدة
+                </button>
+            </div>
+            -->
+            <div class="h-6"></div>
+        </main>
+        <!-- Bottom Navigation -->
+        <nav
+            class="fixed bottom-0 z-50 w-full max-w-md border-t border-gray-100 bg-white dark:bg-[#152e22] dark:border-white/5 pb-safe safe-pb">
+            <div class="flex items-center justify-around px-2 pt-2 pb-1">
+                <a onclick="window.location.href='home.html'"
+                    class="group flex flex-1 flex-col items-center justify-center gap-1 p-2 text-gray-400 dark:text-gray-500 hover:text-primary dark:hover:text-primary-light transition-colors">
+                    <span
+                        class="material-symbols-outlined text-[24px] mb-0.5 group-hover:-translate-y-0.5 transition-transform">home</span>
+                    <span class="text-[10px] font-medium">الرئيسية</span>
+                </a>
+                <a onclick="window.location.href='categories.html'"
+                    class="group flex flex-1 flex-col items-center justify-center gap-1 p-2 text-gray-400 dark:text-gray-500 hover:text-primary dark:hover:text-primary-light transition-colors">
+                    <span
+                        class="material-symbols-outlined text-[24px] mb-0.5 group-hover:-translate-y-0.5 transition-transform">grid_view</span>
+                    <span class="text-[10px] font-medium">الأقسام</span>
+                </a>
+                <a onclick="window.location.href='orders.html'"
+                    class="group flex flex-1 flex-col items-center justify-center gap-1 p-2 text-gray-400 dark:text-gray-500 hover:text-primary dark:hover:text-primary-light transition-colors">
+                    <span
+                        class="material-symbols-outlined text-[24px] mb-0.5 group-hover:-translate-y-0.5 transition-transform">receipt_long</span>
+                    <span class="text-[10px] font-medium">طلباتي</span>
+                </a>
+                <!-- Active Tab -->
+                <a onclick="window.location.href='favorites.html'"
+                    class="group flex flex-1 flex-col items-center justify-center gap-1 p-2 text-primary dark:text-primary-light bg-green-50 rounded-lg">
+                    <div class="relative">
+                        <span class="material-symbols-outlined text-[24px] mb-0.5"
+                            style="font-variation-settings: 'FILL' 1;">favorite</span>
+                        <span class="absolute -top-1 -right-1 h-2 w-2 rounded-full bg-accent"></span>
+                    </div>
+                    <span class="text-[10px] font-bold">المفضلة</span>
+                </a>
+                <a onclick="window.location.href='profile.html'"
+                    class="group flex flex-1 flex-col items-center justify-center gap-1 p-2 text-gray-400 dark:text-gray-500 hover:text-primary dark:hover:text-primary-light transition-colors">
+                    <span
+                        class="material-symbols-outlined text-[24px] mb-0.5 group-hover:-translate-y-0.5 transition-transform">person</span>
+                    <span class="text-[10px] font-medium">حسابي</span>
+                </a>
+            </div>
+        </nav>
+    </div>
+
+    <script>
+        function addToCart(product) {
+            alert(`تم إضافة ${product} إلى السلة!`);
+        }
+
+        function addAllToCart() {
+            alert('تم إضافة جميع المنتجات المفضلة إلى السلة!');
+        }
+    </script>
+
+</body>
+
+</html>
